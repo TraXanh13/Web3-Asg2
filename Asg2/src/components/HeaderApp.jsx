@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import HeaderSeasonSelect from "./HeaderSeasonSelect";
-
+import HeaderMenu from "./HeaderMenu";
 
 const HeaderApp = (props) => {
 
     //fetch seasons here
     const [seasons, setSeasons] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
         const url = "https://zest-jolly-advantage.glitch.me/api/seasons";
 
         fetch(url)
@@ -15,9 +15,10 @@ const HeaderApp = (props) => {
             .then(data => setSeasons(data))
     }, []);
 
-    return(
+    return (
         <header className="header">
-            <HeaderSeasonSelect seasons={seasons}/>
+            <HeaderSeasonSelect seasons={seasons} />
+            <HeaderMenu />
         </header>
     );
 }

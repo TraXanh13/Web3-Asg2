@@ -7,12 +7,7 @@ const HeaderSeasonSelect = (props) => {
     const [season, setSeason] = useState(''); 
 
     const handleChange = (e) => {
-
-        const selectedSeason = e.target.value;
-
-        setSeason(selectedSeason);
-
-        console.log(season);
+        setSeason(e.target.value);
 
     }
 

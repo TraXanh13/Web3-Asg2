@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
 import HeaderSeasonSelect from "./HeaderSeasonSelect";
 import HeaderMenu from "./HeaderMenu";
-
-const supabase = createClient(import.meta.env.VITE_SUPA_URL, import.meta.env.VITE_SUPA_ANON_KEY);
 
 const HeaderApp = (props) => {
 
@@ -16,7 +13,7 @@ const HeaderApp = (props) => {
     }, []);
     
     async function getAllSeasons() {
-        const {data, error} = await supabase
+        const {data, error} = await props.supabase
         .from('seasons')
         .select()
         .order('year', {ascending: false});

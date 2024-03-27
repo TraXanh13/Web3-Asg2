@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HeaderSeasonSelect from "./HeaderSeasonSelect";
 import HeaderMenu from "./HeaderMenu";
+import { AppBar, Toolbar } from "@mui/material";
 
 const HeaderApp = (props) => {
 
@@ -22,10 +23,15 @@ const HeaderApp = (props) => {
     }
 
     return (
-        <header className="header">
-            <HeaderSeasonSelect seasons={seasons}/>
-            <HeaderMenu />
-        </header>
+        <AppBar>
+            <Toolbar>
+                
+            </Toolbar>
+        </AppBar>
+        // <header className="header">
+        //     <HeaderSeasonSelect seasons={seasons}/>
+        //     <HeaderMenu />
+        // </header>
     );
 }
 

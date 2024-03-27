@@ -28,11 +28,9 @@ const HeaderSeasonSelect = (props) => {
                 label="Choose Season"
                 onChange={handleChange}
             >
-                {props.seasons.map((s, indx) => {
-                    <MenuItem key={indx} value={s.year}>
-                        {s.year}
-                    </MenuItem>
-                })}
+                {props.seasons.map((s, indx) => 
+                    <MenuItem key={indx} value={s.year}>{s.year}</MenuItem>
+                )}
             </Select>
         </FormControl>
         </Box>

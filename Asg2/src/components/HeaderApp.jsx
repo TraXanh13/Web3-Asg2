@@ -3,8 +3,9 @@ import { createClient } from "@supabase/supabase-js";
 import HeaderSeasonSelect from "./HeaderSeasonSelect";
 import HeaderMenu from "./HeaderMenu";
 
+console.log(import.meta.env.VITE_SUPA_URL)
+console.log(import.meta.env.VITE_SUPA_ANON_KEY)
 const supabase = createClient(import.meta.env.VITE_SUPA_URL, import.meta.env.VITE_SUPA_ANON_KEY);
-
 const HeaderApp = (props) => {
 
     //fetch seasons here

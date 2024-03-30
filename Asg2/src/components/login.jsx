@@ -11,7 +11,7 @@ export default function Login() {
                         <img
                         className="mx-auto h-24 w-auto"
                         src="/images/F1_Fusion_Logo.svg"
-                        alt="Your Company"
+                        alt="f1 fusion logo"
                         />
                         <h2 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-gray-900">
                         Sign in to your account

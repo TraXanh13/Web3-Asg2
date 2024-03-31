@@ -1,10 +1,9 @@
 import {Link} from 'react-router-dom'
 
 const Race = (props) => {
-    console.log(props)
     return (
         <div className="flex justify-between">
-            <a href={props.race.url} target="_blank" rel="noopener noreferrer" className="min-w-52">{props.index}. {props.race.name}</a> 
+            <a href={props.race.url} target="_blank" rel="noopener noreferrer" className="min-w-52">{props.race.round}. {props.race.name}</a> 
             <div className="mx-12"> {props.race.date}</div>
             <div>
                 <Link to="/">

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
 import Race from './Race';
@@ -5,19 +6,23 @@ import Race from './Race';
 const Races = (props) => {
     // Gets the current season from the params
     const [races, setRaces] = useState([]);
-    const {season} = useParams()
+    const {season, asc} = useParams();
     
     useEffect(() => {
         getRaces();
     }, [])
     
-    async function getRaces(req, res) {
-        // eslint-disable-next-line react/prop-types
+    /*
+        Fetches the races table from the DB
+        By default, sorts the table in ascending order
+        Looks for the query string /races/year/:sort
+     */
+    async function getRaces() {
         const {data, err} = await props.supabase
-            // eslint-disable-next-line react/prop-types
             .from('races')
             .select()
-            .eq("year", season);
+            .eq("year", season)
+            .order("round", {ascending: asc==="asc"});
         
         if(err){
             console.error(err)
@@ -29,13 +34,14 @@ const Races = (props) => {
             return
         }
         
+        console.log(data[0]);
         setRaces(data)
     }
 
     return (
         <div className="border flex flex-col max-w-max px-4 pb-4">
             <h2 className="font-bold text-xl text-center m-8">Races for {season}</h2>
-            {races.map((r, indx) => <Race key={indx} index={indx+1} race={r}/>)}
+            {races.map((r, indx) => <Race key={indx} race={r}/>)}
         </div>
     );
 }

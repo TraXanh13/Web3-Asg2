@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { createClient } from "@supabase/supabase-js";
 import HeaderApp from './components/HeaderApp';
 import Races from './components/Races';
 import Login from './components/login';
+
+const supabase = createClient(import.meta.env.VITE_SUPA_URL, import.meta.env.VITE_SUPA_ANON_KEY);
 
 function App() {
 
@@ -12,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/races/:year' element={<Races />} />
+          <Route path='/races/:season' element={<Races supabase={supabase}/>} />
         </Routes>
         {/* <HeaderApp /> */}
         {/* <Login /> */}

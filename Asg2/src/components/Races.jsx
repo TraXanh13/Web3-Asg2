@@ -33,7 +33,7 @@ const Races = (props) => {
     }
 
     return (
-        <div className="border flex flex-col max-w-max px-4">
+        <div className="border flex flex-col max-w-max px-4 pb-4">
             <h2 className="font-bold text-xl text-center m-8">Races for {season}</h2>
             {races.map((r, indx) => <Race key={indx} index={indx+1} race={r}/>)}
         </div>

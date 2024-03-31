@@ -1,6 +1,7 @@
 import { useState } from 'react';
-
+import { Routes, Route } from 'react-router-dom';
 import HeaderApp from './components/HeaderApp';
+import Races from './components/Races';
 import Login from './components/login';
 
 function App() {
@@ -8,8 +9,13 @@ function App() {
   return (
     <>
       <main>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/races' element={<Races />} />
+        </Routes>
         {/* <HeaderApp /> */}
-        <Login />
+        {/* <Login /> */}
       </main>
 
     </>

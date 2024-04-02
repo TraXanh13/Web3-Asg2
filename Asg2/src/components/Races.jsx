@@ -13,16 +13,16 @@ const Races = (props) => {
     }, [])
     
     /*
-        Fetches the races table from the DB
-        By default, sorts the table in ascending order
-        Looks for the query string /races/year/:sort
+        Fetches the races table from the DB. By default, sorts the table in ascending order
+        Looks for the query string /races/:year/:sort
+        @sort: Will be dsc for descending
      */
     async function getRaces() {
         const {data, err} = await props.supabase
             .from('races')
             .select()
             .eq("year", season)
-            .order("round", {ascending: asc==="asc"});
+            .order("round", {ascending: asc!="dsc"});
         
         if(err){
             console.error(err)

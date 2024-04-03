@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import {useParams} from 'react-router-dom'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import Race from './Race';
 
 const Races = (props) => {
-    const {season, ascend} = useParams();
+    const {season} = useParams();
 
     // Gets the current season from the params
     const [races, setRaces] = useState([]);
-    const [asc, setAsc] = useState(ascend)
+    const [asc, setAsc] = useState("asc")
 
     useEffect(() => {
         getRaces();
@@ -41,24 +41,19 @@ const Races = (props) => {
     }
 
     // Changes race state and changes race sort
-    function updateRaces() {
-        if(asc === "asc")
-            setAsc("dsc")
-        else
-            setAsc("asc")        
-
-        getRaces()
+    function updateRaces () {
+        const copy = [...races].reverse();
+        
+        setRaces(copy);
     }
 
     return (
         <div className="border flex flex-col max-w-max px-4 pb-4">
             <div className="flex m-8 justify-center relative">
                 <h2 className="font-bold text-xl text-center">Races for {season}</h2>
-                    <Link to={`/races/${season}/${asc}`} >
-                        <button className="absolute right-0 h-6" onClick={updateRaces}>
-                            <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
-                        </button>
-                    </Link>
+                    <button type="submit" className="absolute right-0 h-6" onClick={updateRaces}>
+                        <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
+                    </button>
             </div>
             {races.map((r, indx) => <Race key={indx} race={r}/>)}
         </div>

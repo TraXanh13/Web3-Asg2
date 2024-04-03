@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 export default function Login() {
     return (
-        <div className = "absolute w-screen h-screen bg-cover bg-[url('/images/raceCarDriver.jpg')]">
+        <div className = "absolute w-screen h-screen bg-cover bg-[url('/images/raceCarDriver.jpg')] overflow-hidden">
             <div className="flex justify-center align-middle">
                 <div className=" min-h-auto px-6 py-6 w-fit my-24 rounded-md bg-white">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">

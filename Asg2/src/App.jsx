@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/races/:season/:asc?' element={<Races supabase={supabase}/>} />
+          <Route path='/races/:season/:ascend' element={<Races supabase={supabase}/>} />
         </Routes>
         {/* <HeaderApp /> */}
         {/* <Login /> */}

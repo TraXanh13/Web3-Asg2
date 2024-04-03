@@ -10,3 +10,7 @@ Currently, two official plugins are available:
 # Images
 
 Race car driver (Prema Racing, single seater) going to the podium at the Autodromo di Monza (Italian Grand Prix) - September 2023 by <a href="https://unsplash.com/@sararuffoni?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sara Ruffoni</a> on <a href="https://unsplash.com/photos/a-man-in-a-red-suit-walking-across-a-bridge-77N6dN4zM0c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+<a href="https://www.flaticon.com/free-icons/list" title="list icons">List icon created by itim2101 - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/podium" title="podium icons">Podium icon created by Kardus Std - Flaticon</a>

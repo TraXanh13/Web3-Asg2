@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
 // import {Link} from 'react-router-dom'
 import Race from './Race';
@@ -9,7 +9,6 @@ const Races = (props) => {
 
     // Gets the current season from the params
     const [races, setRaces] = useState([]);
-    const [asc, setAsc] = useState("asc")
 
     useEffect(() => {
         getRaces();
@@ -25,7 +24,6 @@ const Races = (props) => {
             .from('races')
             .select()
             .eq("year", season)
-            .order("round", {ascending: asc === "asc"});
         
         if(err){
             console.error(err)

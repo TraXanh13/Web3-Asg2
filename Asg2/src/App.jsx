@@ -1,27 +1,14 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { createClient } from "@supabase/supabase-js";
-import HeaderApp from './components/HeaderApp';
-import Races from './components/Races';
+import {AppContext} from './F1Context';
+import { useContext } from 'react';
 import Login from './components/login';
+import Races from './components/Races';
+import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(import.meta.env.VITE_SUPA_URL, import.meta.env.VITE_SUPA_ANON_KEY);
-
-function App() {
-
+const App = () => {
+  const supabase = createClient(import.meta.env.VITE_SUPA_URL, import.meta.env.VITE_SUPA_ANON_KEY);
+  const {loggedIn} = useContext(AppContext);
   return (
-    <>
-      <main>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/races/:season' element={<Races supabase={supabase}/>} />
-        </Routes>
-        {/* <HeaderApp /> */}
-        {/* <Login /> */}
-      </main>
-
-    </>
+    <div>{loggedIn ? <Races supabase={supabase}/> : <Login />}</div>
   )
 }
 

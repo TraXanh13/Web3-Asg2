@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter} from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
+import {F1Context} from './F1Context.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <F1Context>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+    </F1Context>
+  </React.StrictMode>
 )

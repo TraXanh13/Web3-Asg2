@@ -1,7 +1,6 @@
-// /*
-//  Login form template: https://tailwindui.com/components/application-ui/forms/sign-in-forms
-// */
-import {Link} from 'react-router-dom';
+/*
+    Login form template: https://tailwindui.com/components/application-ui/forms/sign-in-forms
+*/
 
 export default function Login() {
     return (
@@ -61,14 +60,12 @@ export default function Login() {
                         </div>
 
                         <div>
-                            <Link to='/races/2023'>
-                                <button
-                                type="submit"
-                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                >
-                                Sign in
-                                </button>
-                            </Link>
+                            <button
+                            type="submit"
+                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                            Sign in
+                            </button>
                         </div>
                         </form>
                     </div>

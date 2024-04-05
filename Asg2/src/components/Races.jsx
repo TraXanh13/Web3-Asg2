@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import {AppContext} from '../F1Context';
 import Race from './Race';
 
-const Races = () => {
+const Races = (props) => {
     const {season, races, setRaces} = useContext(AppContext)
 
     useEffect(() => {
@@ -16,12 +16,12 @@ const Races = () => {
         @sort: Will be asc for ascending
      */
         async function getRaces() {
-            const {data, err} = await PaymentResponse.supabase
+            console.log(season)
+            const {data, err} = await props.supabase
                 .from("races")
                 .select()
                 .eq("year", season)
                 
-            console.log(data)
 
             if(err){
                 console.error(err)

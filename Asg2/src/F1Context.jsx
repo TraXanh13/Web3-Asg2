@@ -4,7 +4,7 @@ import { createContext, useState} from 'react'
 export const AppContext = createContext();
 
 export const F1Context = ({children}) => {
-    const [loggedIn, setLogin] = useState(false)
+    const [loggedIn, setLogin] = useState(true)
     const [season, setSeason] = useState(2023);
     const [driver, setDriver] = useState([]);
     const [races, setRaces] = useState([]);

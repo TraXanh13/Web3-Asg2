@@ -1,42 +1,40 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
-import {useParams} from 'react-router-dom'
-// import {Link} from 'react-router-dom'
+import { useContext, useEffect } from "react";
+import {AppContext} from '../F1Context';
 import Race from './Race';
 
 const Races = (props) => {
-    const {season} = useParams();
-
-    // Gets the current season from the params
-    const [races, setRaces] = useState([]);
+    const {season, races, setRaces} = useContext(AppContext)
 
     useEffect(() => {
         getRaces();
     }, [])
-    
+
     /*
         Fetches the races table from the DB.
         Looks for the query string /races/:year/:sort
         @sort: Will be asc for ascending
      */
-    async function getRaces() {
-        const {data, err} = await props.supabase
-            .from('races')
-            .select()
-            .eq("year", season)
-        
-        if(err){
-            console.error(err)
-            return
+        async function getRaces() {
+            console.log(season)
+            const {data, err} = await props.supabase
+                .from("races")
+                .select()
+                .eq("year", season)
+                
+
+            if(err){
+                console.error(err)
+                return
+            }
+            
+            if(!data || data.length === 0){
+                console.error(`${season} does not exist in the DB ${err}`)
+                return
+            }
+            
+            setRaces(data)
         }
-        
-        if(!data || data.length === 0){
-            console.error(`${season} does not exist in the DB ${err}`)
-            return
-        }
-        
-        setRaces(data)
-    }
 
     // Changes race state and changes race sort
     function updateRaces () {

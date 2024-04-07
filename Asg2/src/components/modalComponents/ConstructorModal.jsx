@@ -3,18 +3,18 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
-const FavoritesModal = () => {
-    const { favoriteView, setFavoriteView } = useContext(AppContext)
+const ConstructorModal = () => {
+    //This state is temporary and is use for testing, please change this to a proper one 
+    const { testView, setTestView } = useContext(AppContext)
 
-    const handleFavoriteClose = () => {
-        setFavoriteView(false);
+    const handleConstructorClose = () => {
+        setTestView(false);
     }
 
     return (
         <>
             <Transition appear show={favoriteView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
-
                     {/* This part will transition the background to dim */}
                     <Transition.Child
                         as={Fragment}
@@ -78,10 +78,8 @@ const FavoritesModal = () => {
                 </Dialog>
             </Transition>
         </>
-
-
-
     )
+
 }
 
-export default FavoritesModal;
+export default ConstructorModal;

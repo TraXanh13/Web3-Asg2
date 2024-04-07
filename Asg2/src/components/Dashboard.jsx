@@ -7,7 +7,7 @@ import Results from './resultsComponents/Results'
 import FavoritesModal from './modalComponents/FavoriteModal';
 
 const Dashboard = (props) => {
-    const { view, favoriteView } = useContext(AppContext);
+    const { view } = useContext(AppContext);
 
     let compView = <h1>None</h1>;
 

@@ -34,6 +34,9 @@ export const F1Context = ({ children }) => {
     // The list of races in a season
     const [races, setRaces] = useState([]);
 
+    //This is a view for testing
+    const [testView, setTestView] = useState(false);
+
     return (
         <AppContext.Provider value={{
             loggedIn,
@@ -55,7 +58,12 @@ export const F1Context = ({ children }) => {
             selectedDriver,
             setSelectedDriver,
             races,
-            setRaces
+            setRaces,
+
+            //testing states
+            testView,
+            setTestView,
+
         }}>
             {children}
         </AppContext.Provider>

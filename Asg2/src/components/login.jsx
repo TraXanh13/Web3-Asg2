@@ -2,7 +2,7 @@
     Login form template: https://tailwindui.com/components/application-ui/forms/sign-in-forms
 */
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import {AppContext} from '../F1Context';
 
 export default function Login() {

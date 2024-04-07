@@ -14,27 +14,27 @@ const Races = (props) => {
         Fetches the races table from the DB.
         Looks for the query string /races/:year/:sort
         @sort: Will be asc for ascending
-     */
-        async function getRaces() {
-            console.log(season)
-            const {data, err} = await props.supabase
-                .from("races")
-                .select()
-                .eq("year", season)
-                
+    */
+    async function getRaces() {
+        console.log(season)
+        const {data, err} = await props.supabase
+            .from("races")
+            .select()
+            .eq("year", season)
+            
 
-            if(err){
-                console.error(err)
-                return
-            }
-            
-            if(!data || data.length === 0){
-                console.error(`${season} does not exist in the DB ${err}`)
-                return
-            }
-            
-            setRaces(data)
+        if(err){
+            console.error(err)
+            return
         }
+        
+        if(!data || data.length === 0){
+            console.error(`${season} does not exist in the DB ${err}`)
+            return
+        }
+        
+        setRaces(data)
+    }
 
     // Changes race state and changes race sort
     function updateRaces () {

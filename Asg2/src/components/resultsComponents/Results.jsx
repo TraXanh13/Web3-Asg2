@@ -2,13 +2,12 @@
 import Winner from './results/Winner'
 import SecondAndThird from './results/SecondAndThird';
 import OtherDrivers from './results/OtherDrivers';
-import { useEffect, useContext} from 'react';
+import { useEffect, useContext } from 'react';
 import { AppContext } from '../../F1Context';
 
 const Results = (props) => {
-    
 
-    return(
+    return (
         <div className="border flex grow flex-col min-w-max pb-4">
             <h2 className='font-bold text-xl text-center'>Results</h2>
             <div className="flex grow">

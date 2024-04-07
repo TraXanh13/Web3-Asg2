@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import HeaderApp from './HeaderApp';
-import Races from './Races';
+import HeaderApp from './headerComponents/HeaderApp';
+import Races from './racesComponents/Races';
 
 
 const Dashboard = (props) => {

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext, useEffect } from "react";
-import { AppContext } from '../F1Context';
+import { AppContext } from '../../F1Context';
 import Race from './Race';
 
 const Races = (props) => {
@@ -47,7 +47,7 @@ const Races = (props) => {
     }
 
     return (
-        <div className="border flex flex-col max-w-max px-4 pb-4">
+        <div className="border flex flex-col min-w-max px-4 pb-4">
             <div className="flex m-8 justify-center relative">
                 <h2 className="font-bold text-xl text-center">Races for {season}</h2>
                 <button type="submit" className="absolute right-0 h-6" onClick={updateRaces}>

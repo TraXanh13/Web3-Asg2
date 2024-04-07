@@ -4,9 +4,31 @@ import { createContext, useState } from 'react'
 export const AppContext = createContext();
 
 export const F1Context = ({children}) => {
-    const [loggedIn, setLogin] = useState(false)
+    // Login state: true for logged in
+    const [loggedIn, setLogin] = useState(false);
+
+    // The current season selected
     const [season, setSeason] = useState(2023);
-    const [driver, setDriver] = useState([]);
+
+    // The view for standing, results, or none selected
+    const [view, setView] = useState("none");
+
+    // The list of drivers, times, and positions in the qualifying stage
+    const [qualifyingData, setQualifyingData] = useState([]);
+
+    // The list of drivers, times, and positions of the race
+    const [resultsData, setResultsData] = useState([]);
+    
+    // The drivers standings after a specific race
+    const [driverStandings, setDriverStandings] = useState([]);
+    
+    // The constructors standings after a specific race
+    const [constructorStandings, setConstructorStandings] = useState([]);
+
+    // The individual driver selected
+    const [selectedDriver, setSelectedDriver] = useState([]);
+
+    // The list of races in a season
     const [races, setRaces] = useState([]);
 
     return (
@@ -15,10 +37,20 @@ export const F1Context = ({children}) => {
             setLogin,
             season,
             setSeason,
+            view, 
+            setView,
+            qualifyingData,
+            setQualifyingData,
+            resultsData,
+            setResultsData,
+            driverStandings,
+            setDriverStandings,
+            constructorStandings,
+            setConstructorStandings,
+            selectedDriver,
+            setSelectedDriver,
             races,
-            setRaces,
-            driver,
-            setDriver
+            setRaces
         }}>
             {children}
         </AppContext.Provider>

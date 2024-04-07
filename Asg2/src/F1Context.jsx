@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 
 export const AppContext = createContext();
 
-export const F1Context = ({children}) => {
+export const F1Context = ({ children }) => {
     // Login state: true for logged in
     const [loggedIn, setLogin] = useState(false);
 
@@ -13,15 +13,18 @@ export const F1Context = ({children}) => {
     // The view for standing, results, or none selected
     const [view, setView] = useState("none");
 
+    //The view of the favorites popup
+    const [favoriteView, setFavoriteView] = useState(false);
+
     // The list of drivers, times, and positions in the qualifying stage
     const [qualifyingData, setQualifyingData] = useState([]);
 
     // The list of drivers, times, and positions of the race
     const [resultsData, setResultsData] = useState([]);
-    
+
     // The drivers standings after a specific race
     const [driverStandings, setDriverStandings] = useState([]);
-    
+
     // The constructors standings after a specific race
     const [constructorStandings, setConstructorStandings] = useState([]);
 
@@ -37,8 +40,10 @@ export const F1Context = ({children}) => {
             setLogin,
             season,
             setSeason,
-            view, 
+            view,
             setView,
+            favoriteView,
+            setFavoriteView,
             qualifyingData,
             setQualifyingData,
             resultsData,

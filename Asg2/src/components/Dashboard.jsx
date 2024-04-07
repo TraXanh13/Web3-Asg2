@@ -4,10 +4,10 @@ import { AppContext } from '../F1Context';
 import HeaderApp from './headerComponents/HeaderApp';
 import Races from './racesComponents/Races';
 import Results from './resultsComponents/Results'
-
+import FavoritesModal from './modalComponents/FavoriteModal';
 
 const Dashboard = (props) => {
-    const { view } = useContext(AppContext);
+    const { view, favoriteView } = useContext(AppContext);
 
     let compView = <h1>None</h1>;
 
@@ -25,6 +25,7 @@ const Dashboard = (props) => {
                 {compView}
 
             </div>
+            <FavoritesModal />
         </main>
 
     )

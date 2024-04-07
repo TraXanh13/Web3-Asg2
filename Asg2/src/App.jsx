@@ -1,8 +1,7 @@
 import { AppContext } from './F1Context';
 import { useContext } from 'react';
-import Login from './components/login';
-import Races from './components/racesComponents/Races';
 import { createClient } from "@supabase/supabase-js";
+import Login from './components/login';
 import Dashboard from './components/Dashboard';
 
 const supabase = createClient(import.meta.env.VITE_SUPA_URL, import.meta.env.VITE_SUPA_ANON_KEY);

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext, useEffect } from "react";
-import {AppContext} from '../F1Context';
+import {AppContext} from '../../F1Context';
 import Race from './Race';
 
 const Races = (props) => {

@@ -1,7 +1,7 @@
 import {AppContext} from './F1Context';
 import { useContext } from 'react';
 import Login from './components/login';
-import Races from './components/Races';
+import Races from './components/racesComponents/Races';
 import { createClient } from "@supabase/supabase-js";
 
 const App = () => {

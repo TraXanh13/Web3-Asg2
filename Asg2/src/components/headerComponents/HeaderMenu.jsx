@@ -1,26 +1,10 @@
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
-
 const HeaderMenu = (props) => {
     return (
-        // <nav>
-        //     <Link to="/favorites">
-        //         <button className="favorites">Favorites</button>
-        //     </Link>
-        //     <Link to="/about">
-        //         <button className="about">About</button>
-        //     </Link>
-        // </nav>
+        <div className="flex items-center py-5 mx-2">
+            <button className="text-amber-600 dark:text-red font-medium rounded-lg text-2xl px-4 lg:px-5 py-2 lg:py-2.5">Favorites</button>
+            <button className="text-amber-600 text-2xl bg-primary-700 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5">About</button>
+        </div>
 
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Link to="/favorites">
-                <Button>Favorites</Button>
-            </Link>
-
-            <Link to="/about">
-            <Button>About</Button>
-            </Link>
-        </Box>
     );
 }
 

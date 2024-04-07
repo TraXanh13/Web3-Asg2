@@ -21,21 +21,21 @@ const Races = (props) => {
     */
     async function getRaces() {
         console.log(season)
-        const {data, err} = await props.supabase
+        const { data, err } = await props.supabase
             .from("races")
             .select()
             .eq("year", season)
-            
-        if(err){
+
+        if (err) {
             console.error(err)
             return
         }
-        
-        if(!data || data.length === 0){
+
+        if (!data || data.length === 0) {
             console.error(`${season} does not exist in the DB ${err}`)
             return
         }
-        
+
         setRaces(data)
     }
 

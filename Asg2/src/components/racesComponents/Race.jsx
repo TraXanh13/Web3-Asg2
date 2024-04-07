@@ -1,4 +1,7 @@
 /* eslint-disable react/prop-types */
+import ResultsButton from "./ResultsButton";
+import StandingsButton from "./StandingsButton";
+
 const Race = (props) => {
 
     function convertDate(date) {
@@ -25,13 +28,8 @@ const Race = (props) => {
             <a href={props.race.url} target="_blank" rel="noopener noreferrer" className="min-w-52">{props.race.round}. {props.race.name}</a> 
             <div className="mx-12"> {convertDate(props.race.date)}</div>
             <div className="flex overflow-hidden whitespace-nowrap">
-                    <button>
-                        <img src="/images/icons/clipboard.png" title="Results icon" alt="Results icon" className="mr-2"></img>
-                    </button>
-
-                    <button>
-                        <img src="/images/icons/podium.png" title="Podium icon" alt="Podium icon"></img>
-                    </button>
+                    <ResultsButton raceId={props.race.raceId} supabase={props.supabase}/>
+                    <StandingsButton raceId={props.race.raceId} supabase={props.supabase}/>
             </div>
         </div>
     );

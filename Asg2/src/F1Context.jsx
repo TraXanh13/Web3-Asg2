@@ -17,10 +17,10 @@ export const F1Context = ({ children }) => {
     const [favoriteView, setFavoriteView] = useState(false);
 
     // The list of drivers, times, and positions in the qualifying stage
-    const [qualifyingData, setQualifyingData] = useState([]);
+    const [qualifying, setQualifying] = useState([]);
 
     // The list of drivers, times, and positions of the race
-    const [resultsData, setResultsData] = useState([]);
+    const [results, setResults] = useState([]);
 
     // The drivers standings after a specific race
     const [driverStandings, setDriverStandings] = useState([]);
@@ -45,12 +45,10 @@ export const F1Context = ({ children }) => {
             setSeason,
             view,
             setView,
-            favoriteView,
-            setFavoriteView,
-            qualifyingData,
-            setQualifyingData,
-            resultsData,
-            setResultsData,
+            qualifying: qualifying,
+            setQualifying: setQualifying,
+            results: results,
+            setResults: setResults,
             driverStandings,
             setDriverStandings,
             constructorStandings,

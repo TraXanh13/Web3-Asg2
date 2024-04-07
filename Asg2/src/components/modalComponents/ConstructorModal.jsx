@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
-const ConstructorModal = () => {
+const ConstructorModal = (props) => {
     //This state is temporary and is use for testing, please change this to a proper one 
     const { testView, setTestView } = useContext(AppContext)
 
@@ -13,7 +13,8 @@ const ConstructorModal = () => {
 
     return (
         <>
-            <Transition appear show={favoriteView} as={Fragment}>
+            {/*Please change the show to the right state name after testing */}
+            <Transition appear show={testView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}
                     <Transition.Child
@@ -50,7 +51,7 @@ const ConstructorModal = () => {
                                         <Button>
                                             Empty Favorites
                                         </Button>
-                                        <Button onClick={handleFavoriteClose} >
+                                        <Button onClick={handleConstructorClose} >
                                             Close
                                         </Button>
                                     </div>

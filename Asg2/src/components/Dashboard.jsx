@@ -5,6 +5,7 @@ import HeaderApp from './headerComponents/HeaderApp';
 import Races from './racesComponents/Races';
 import Results from './resultsComponents/Results'
 import FavoritesModal from './modalComponents/FavoriteModal';
+import ConstructorModal from './modalComponents/ConstructorModal';
 
 const Dashboard = (props) => {
     const { view } = useContext(AppContext);
@@ -26,6 +27,7 @@ const Dashboard = (props) => {
 
             </div>
             <FavoritesModal />
+            <ConstructorModal />
         </main>
 
     )

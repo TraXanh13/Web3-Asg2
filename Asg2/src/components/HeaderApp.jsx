@@ -29,16 +29,17 @@ const HeaderApp = (props) => {
         // </header>
 
         <header>
-            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-red-800">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                    <HeaderSeasonSelect seasons={seasons} />
-                    <div className="flex items-center lg:order-2">
-                        <a href="#" className="text-gray-800 dark:text-white font-medium rounded-lg text-xl px-4 lg:px-5 py-2 lg:py-2.5 mr-2">Favorites</a>
-                        <a href="#" className="text-white text-xl bg-primary-700 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2">About</a>
-
+            <nav className="bg-gray-200 border-gray-200 px-2 lg:px-3 py-2 dark:white">
+                <div className="flex flex-wrap justify-between items-end mx-auto">
+                    <div className="lg:flex lg:w-auto lg:order-0">
+                        <img src="./public/images/F1_Fusion_Logo.svg" title="Site Logo" alt="Site Logo" className="h-24 w-auto mx-4" />
+                        <HeaderSeasonSelect seasons={seasons} />
                     </div>
-                    <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                        <h1 className="text-white uppercase rounded-lg font-bold text-2xl px-4 lg:px-5 py-2 lg:py-2.5 mr-2">F1 Fusion</h1>
+
+                    <div className="flex items-center py-5 mx-2">
+                        <a href="#" className="text-amber-600 dark:text-red font-medium rounded-lg text-2xl px-4 lg:px-5 py-2 lg:py-2.5 ">Favorites</a>
+                        <a href="#" className="text-amber-600 text-2xl bg-primary-700 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 ">About</a>
+
                     </div>
                 </div>
             </nav>

@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useContext, useEffect } from "react";
+<<<<<<< HEAD:Asg2/src/components/Races.jsx
 import { AppContext } from '../F1Context';
+=======
+import {AppContext} from '../../F1Context';
+>>>>>>> main:Asg2/src/components/racesComponents/Races.jsx
 import Race from './Race';
 
 const Races = (props) => {
@@ -18,18 +22,27 @@ const Races = (props) => {
         Fetches the races table from the DB.
         Looks for the query string /races/:year/:sort
         @sort: Will be asc for ascending
-     */
+    */
     async function getRaces() {
         console.log(season)
-        const { data, err } = await props.supabase
+        const {data, err} = await props.supabase
             .from("races")
             .select()
             .eq("year", season)
+            
 
-        if (err) {
+        if(err){
             console.error(err)
             return
         }
+        
+        if(!data || data.length === 0){
+            console.error(`${season} does not exist in the DB ${err}`)
+            return
+        }
+        
+        setRaces(data)
+    }
 
         if (!data || data.length === 0) {
             console.error(`${season} does not exist in the DB ${err}`)

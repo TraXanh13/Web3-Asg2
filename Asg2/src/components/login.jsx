@@ -2,9 +2,16 @@
     Login form template: https://tailwindui.com/components/application-ui/forms/sign-in-forms
 */
 
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import {AppContext} from '../F1Context';
 
 export default function Login() {
+    const {setLogin} = useContext(AppContext);
+
+    const handleSubmit = () => {
+        setLogin(true);
+    }
+
     return (
         <div className="absolute w-screen h-screen bg-cover bg-[url('/images/raceCarDriver.jpg')] overflow-hidden">
             <div className="flex justify-center align-middle">
@@ -61,16 +68,15 @@ export default function Login() {
                                 </div>
                             </div>
 
-                            <div>
-                                <Link to='/dashboard'>
-                                    <button
-                                        type="submit"
-                                        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    >
-                                        Sign in
-                                    </button>
-                                </Link>
-                            </div>
+                        <div>
+                            <button
+                            type="submit"
+                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            onClick={handleSubmit}
+                            >
+                            Sign in
+                            </button>
+                        </div>
                         </form>
                     </div>
                 </div>

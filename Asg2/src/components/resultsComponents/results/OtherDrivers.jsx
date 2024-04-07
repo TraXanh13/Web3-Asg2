@@ -1,9 +1,13 @@
+/* eslint-disable react/prop-types */
 const OtherDrivers = (props) => {
-    
     return(
-        <div className="border col-span-3 row-span-7">
-            Losers
-        </div>
+        <tr>
+            <td className="text-center">{props.result.positionOrder}.</td>
+            <td>{props.result.drivers.forename} {props.result.drivers.surname}</td>
+            <td>{props.result.constructors.name}</td>
+            <td className="text-center">{props.result.laps}</td>
+            <td className="text-center">{props.result.points}</td>
+        </tr>
     )
 }
 

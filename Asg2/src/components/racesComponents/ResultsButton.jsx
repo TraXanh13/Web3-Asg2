@@ -3,12 +3,12 @@ import { useContext } from "react"
 import { AppContext } from "../../F1Context"
 
 const ResultsButton = (props) => {
-    const { setView, setQualifyingData, setResultsData } = useContext(AppContext)
+    const { setView: setView, setQualifying: setQualifying, setResults } = useContext(AppContext)
     
     const buttonHandler = () => {
         setView("results");
-        fetchResultsData();
-        fetchQualifyingData();
+        fetchResults();
+        fetchQualifying();
     }
 
     /*
@@ -16,11 +16,17 @@ const ResultsButton = (props) => {
     *
     * @raceId: the spefic race that is being checked
     */
-    async function fetchResultsData() {
+    async function fetchResults() {
         const {data, err} = await props.supabase
-            .from("results")
-            .select('drivers!inner(*)')
+            .from('results')
+            .select(`
+                *,
+                drivers (*),
+                races (*), 
+                constructors (*)
+            `)
             .eq("raceId", props.raceId)
+            .order("positionOrder", {ascending: true});
             
         if(err){
             console.error(err)
@@ -32,7 +38,7 @@ const ResultsButton = (props) => {
             return
         }
         
-        setResultsData(data)
+        setResults(data)
     }
 
     /*
@@ -40,18 +46,17 @@ const ResultsButton = (props) => {
     *
     * @raceId: the spefic race that is being checked
     */
-    async function fetchQualifyingData() {
+    async function fetchQualifying() {
         const {data, err} = await props.supabase
             .from('qualifying')
             // Replacing the foreign keys with the specific drivers, races, and constructors info
             .select(`
                 qualifyId, number, position, q1, q2, q3, 
-                drivers (driverRef, code, forename, surname),
-                races (name, round, year, date), 
-                constructors (name, constructorRef, nationality)
+                drivers (*),
+                races (*), 
+                constructors (*)
             `)
             .eq("raceId", props.raceId)
-            .order("position", { ascending: true});
 
         if(err){
             console.error(err)
@@ -63,7 +68,7 @@ const ResultsButton = (props) => {
             return
         }
         
-        setQualifyingData(data)
+        setQualifying(data)
     }
 
     return(

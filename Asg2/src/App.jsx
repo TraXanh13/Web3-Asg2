@@ -12,7 +12,6 @@ const App = () => {
   return (
 
     <div>
-
       {loggedIn ? <Dashboard supabase={supabase} /> : <Login />}
     </div>
   )

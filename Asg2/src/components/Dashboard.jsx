@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import HeaderApp from './HeaderApp';
 import Races from './Races';
 

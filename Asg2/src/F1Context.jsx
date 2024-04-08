@@ -113,6 +113,7 @@ export const F1Context = ({ children }) => {
             driverView, setDriverView,
             constructorView, setConstructorView,
             circuitView, setCircuitView,
+            view, setView,
 
 
             //loading

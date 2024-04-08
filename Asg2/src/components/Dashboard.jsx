@@ -2,6 +2,7 @@
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../F1Context';
 import HeaderApp from './headerComponents/HeaderApp';
+import Footer from './footerComponents/Footer';
 import Races from './racesComponents/Races';
 import Results from './resultsComponents/Results'
 import AllStandings from './standingsComponents/AllStandings';
@@ -31,10 +32,9 @@ const Dashboard = (props) => {
     }
 
     return (
-        <main className='min-h-full'>
+        <main className="max-h-screen overflow-y-hidden">
             <HeaderApp supabase={props.supabase} />
-            <div className="absolute w-full flex h-5/6"
-            >
+            <div className="absolute w-full flex h-5/6">
                 <Races supabase={props.supabase} />
                 {compView}
 
@@ -44,6 +44,7 @@ const Dashboard = (props) => {
             <DriverModal />
             <CircuitModal />
             <AboutModal />
+            <Footer />
         </main>
 
     )

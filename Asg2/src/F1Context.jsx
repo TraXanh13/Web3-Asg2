@@ -49,11 +49,20 @@ export const F1Context = ({ children }) => {
     // The list of races in a season
     const [races, setRaces] = useState([]);
 
-    //This is a view for testing
-    const [testView, setTestView] = useState(false);
-
-    //This is for loading in the Standings Comp
+    //This is for loading in the Standings Component
     const [standingsLoading, setStandingsLoading] = useState(true);
+
+    /**
+     * The following states are for the Favorites Modal
+     */
+
+    //Drivers
+    const [favoriteDrivers, setFavoriteDrivers] = useState([]);
+    //Constructors
+    const [favoriteConstructors, setFavoriteConstructors] = useState([]);
+    //Circuits
+    const [favoriteCircuits, setFavoriteCircuits] = useState([]);
+
 
     return (
         <AppContext.Provider value={{
@@ -90,14 +99,14 @@ export const F1Context = ({ children }) => {
             circuitView,
             setCircuitView,
 
-            //testing states
-            testView,
-            setTestView,
-
             //loading
             standingsLoading,
-            setStandingsLoading
+            setStandingsLoading,
 
+            //favorites
+            favoriteDrivers, setFavoriteDrivers,
+            favoriteConstructors, setFavoriteConstructors,
+            favoriteCircuits, setFavoriteCircuits,
         }}>
             {children}
         </AppContext.Provider>

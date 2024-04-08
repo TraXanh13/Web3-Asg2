@@ -18,7 +18,7 @@ const Dashboard = (props) => {
     let compView = <div></div>;
 
     if (view === "results") {
-        compView = <Results />
+        compView = <Results supabase={props.supabase} />
     } else if (view == "standings") {
         compView = <AllStandings supabase={props.supabase} />
     }

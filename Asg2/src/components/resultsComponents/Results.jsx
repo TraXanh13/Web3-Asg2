@@ -6,7 +6,7 @@ import Qualifying from './qualifying/Qualifying'
 import { useContext } from 'react';
 import { AppContext } from '../../F1Context';
 
-const Results = () => {
+const Results = (props) => {
     const { results, qualifying } = useContext(AppContext)
 
     return (
@@ -29,7 +29,7 @@ const Results = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {qualifying.map((result, i) => <Qualifying result={result} key={i} />)}
+                        {qualifying.map((result, i) => <Qualifying result={result} key={i} supabase={props.supabase} />)}
                     </tbody>
                 </table>
             </div>

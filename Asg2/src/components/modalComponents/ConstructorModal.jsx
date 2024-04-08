@@ -20,6 +20,10 @@ const ConstructorModal = (props) => {
         setConstructorView(false);
     }
 
+    const addToFavorites = () => {
+
+    }
+
     return (
         <>
             {/*Please change the show to the right state name after testing */}
@@ -57,7 +61,7 @@ const ConstructorModal = (props) => {
                                         Constructor Details
                                     </Dialog.Title>
                                     <div>
-                                        <Button>
+                                        <Button onClick={addToFavorites}>
                                             Empty Favorites
                                         </Button>
                                         <Button onClick={handleConstructorClose} >

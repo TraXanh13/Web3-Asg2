@@ -4,7 +4,11 @@ import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
 const FavoritesModal = () => {
-    const { favoriteView, setFavoriteView } = useContext(AppContext)
+    const { favoriteView, setFavoriteView } = useContext(AppContext);
+
+    const { favoriteDrivers, setFavoriteDrivers,
+        favoriteConstructors, setFavoriteConstructors,
+        favoriteCircuits, setFavoriteCircuits } = useContext(AppContext);
 
     const handleFavoriteClose = () => {
         setFavoriteView(false);

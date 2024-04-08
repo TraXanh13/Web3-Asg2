@@ -52,9 +52,7 @@ const StandingsButton = (props) => {
             .from('constructorStandings')
             // Replacing the foreign keys with the specific drivers, and races info
             .select(`
-                constructorStandingsId, points, position, positionText, wins,
-                constructors (name, constructorRef, nationality),
-                races (name, round, year, date)
+                *, constructors (*), races (*)
             `)
             .eq("raceId", props.raceId)
             .order("position", { ascending: true });

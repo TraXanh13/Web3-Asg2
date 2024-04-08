@@ -20,7 +20,7 @@ const AllStandings = (props) => {
                     stroke="10"
                     bg-opacity="0.23"
                     speed="1.4"
-                    color="black"
+                    color="red"
                 ></l-infinity>
             </div>
 

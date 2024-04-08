@@ -20,9 +20,12 @@ const Races = (props) => {
         @sort: Will be asc for ascending
     */
     async function getRaces() {
-        const {data, err} = await props.supabase
+        const { data, err } = await props.supabase
             .from("races")
-            .select()
+            .select(`
+                *,
+                circuits(*)
+            `)
             .eq("year", season)
             .order("round")
 
@@ -54,7 +57,7 @@ const Races = (props) => {
                     <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
                 </button>
             </div>
-            {races.map((r, indx) => <Race key={indx} race={r} supabase={props.supabase}/>)}
+            {races.map((r, indx) => <Race key={indx} race={r} supabase={props.supabase} />)}
         </div>
     );
 }

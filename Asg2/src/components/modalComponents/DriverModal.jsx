@@ -5,8 +5,14 @@ import Button from "../functionalComponents/Button";
 
 const DriverModal = (props) => {
     //This state is temporary and is use for testing, please change this to a proper one 
-    const { driver, driverView, setDriverView } = useContext(AppContext);
+    const { driver,
+        driverView,
+        setDriverView,
+        favoriteDrivers,
+        setFavoriteDrivers } = useContext(AppContext);
+
     const [isDataLoaded, setIsDataLoaded] = useState(false);
+    const [inFavorites, setInFavorites] = useState(false);
 
     const handleDriverClose = () => {
         setDriverView(false);
@@ -16,7 +22,19 @@ const DriverModal = (props) => {
         if (driver) {
             setIsDataLoaded(true);;
         }
-    }, [driver]);
+        //check if the current circuit is in the favorites
+        const isInFavorites = favoriteDrivers.some(favDriver => favDriver.driverRef === driver[0].driverRef);
+        setInFavorites(isInFavorites);
+
+    }, [driver, favoriteDrivers]);
+
+    const addToFavorites = () => {
+
+        if (!inFavorites) {
+            favoriteDrivers.push(driver[0]);
+            setFavoriteDrivers([...favoriteDrivers]);
+        }
+    }
 
     return (
         <>
@@ -55,8 +73,8 @@ const DriverModal = (props) => {
                                         Driver Details
                                     </Dialog.Title>
                                     <div>
-                                        <Button>
-                                            Add to Favorites
+                                        <Button disabledStatus={inFavorites} onClick={addToFavorites}>
+                                            {inFavorites ? 'Already in Favorites' : 'Add to Favorites'}
                                         </Button>
                                         <Button onClick={handleDriverClose} >
                                             Close

@@ -32,7 +32,7 @@ const Dashboard = (props) => {
                 {compView}
 
             </div>
-            <FavoritesModal />
+            <FavoritesModal supabase={props.supabase} />
             <ConstructorModal />
             <DriverModal />
             <CircuitModal />

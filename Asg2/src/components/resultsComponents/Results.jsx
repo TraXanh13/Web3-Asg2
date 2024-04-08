@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { AppContext } from '../../F1Context';
 
 const Results = () => {
-    const { results: results, qualifying: qualifying } = useContext(AppContext)
+    const { results, qualifying } = useContext(AppContext)
 
     return (
         <div className="border flex grow flex-wrap h-full relative overflow-hidden">

@@ -4,8 +4,12 @@ import { AppContext } from '../F1Context';
 import HeaderApp from './headerComponents/HeaderApp';
 import Races from './racesComponents/Races';
 import Results from './resultsComponents/Results'
+import AllStandings from './standingsComponents/AllStandings';
+
+//Import Modal Views
 import FavoritesModal from './modalComponents/FavoriteModal';
 import ConstructorModal from './modalComponents/ConstructorModal';
+import DriverModal from './modalComponents/DriverModal';
 
 const Dashboard = (props) => {
     const { view } = useContext(AppContext);
@@ -13,9 +17,9 @@ const Dashboard = (props) => {
     let compView = <h1>None</h1>;
 
     if (view === "results") {
-        compView = <Results supabase={props.supabase} />
+        compView = <Results />
     } else if (view == "standings") {
-        compView = <h1>Standings</h1>
+        compView = <AllStandings supabase={props.supabase} />
     }
 
     return (
@@ -28,7 +32,8 @@ const Dashboard = (props) => {
 
             </div>
             <FavoritesModal />
-            <ConstructorModal />
+            {/* <ConstructorModal /> */}
+            <DriverModal />
         </main>
 
     )

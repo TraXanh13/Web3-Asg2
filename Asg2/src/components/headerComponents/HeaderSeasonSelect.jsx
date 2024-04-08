@@ -1,4 +1,4 @@
-import SeasonOption from "../SeasonOption.jsx";
+import SeasonOption from "./SeasonOption.jsx";
 import { AppContext } from '../../F1Context.jsx';
 import { useContext } from "react";
 

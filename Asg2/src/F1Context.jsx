@@ -28,8 +28,8 @@ export const F1Context = ({ children }) => {
     // The constructors standings after a specific race
     const [constructorStandings, setConstructorStandings] = useState([]);
 
-    // The individual driver selected
-    const [selectedDriver, setSelectedDriver] = useState([]);
+    //Driver Data
+    const [driver, setDriver] = useState(null);
 
     // The list of races in a season
     const [races, setRaces] = useState([]);
@@ -45,18 +45,22 @@ export const F1Context = ({ children }) => {
             setSeason,
             view,
             setView,
-            qualifying: qualifying,
-            setQualifying: setQualifying,
-            results: results,
-            setResults: setResults,
+            qualifying,
+            setQualifying,
+            results,
+            setResults,
+            driver,
+            setDriver,
             driverStandings,
             setDriverStandings,
             constructorStandings,
             setConstructorStandings,
-            selectedDriver,
-            setSelectedDriver,
             races,
             setRaces,
+
+            //views
+            favoriteView,
+            setFavoriteView,
 
             //testing states
             testView,

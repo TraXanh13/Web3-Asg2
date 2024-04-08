@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import { AppContext } from "../../F1Context";
-import Driver from "./Driver";
+import Constructor from "./Constructor";
 import StandingsHeader from "../functionalComponents/StandingsHeader";
 
-const DriverStandings = (props) => {
-    const { driverStandings } = useContext(AppContext);
+const ConstructorStandings = (props) => {
+    const { constructorStandings } = useContext(AppContext);
 
     return (
         <div className="w-fit border ml-10 px-4 justify-items-center">
-            <h3 className='font-bold text-lg text-center'>Drivers</h3>
+            <h3 className='font-bold text-lg text-center'>Constructors</h3>
+            {/* another comp here and use map */}
+
             <table className="table-auto w-96">
                 {/* Table Header */}
                 <thead className="">
@@ -22,7 +24,7 @@ const DriverStandings = (props) => {
 
                 {/*Table Content */}
                 <tbody>
-                    {driverStandings.map((d, indx) => <Driver key={indx} driver={d} supabase={props.supabase} />)}
+                    {constructorStandings.map((c, indx) => <Constructor key={indx} constructor={c} supabase={props.supabase} />)}
 
                 </tbody>
             </table>
@@ -30,4 +32,4 @@ const DriverStandings = (props) => {
     )
 }
 
-export default DriverStandings;
+export default ConstructorStandings;

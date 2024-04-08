@@ -1,22 +1,22 @@
 import { useContext } from "react"
 import { AppContext } from "../../F1Context"
 
-const Driver = (props) => {
-    const { setDriverView, setDriver } = useContext(AppContext);
+const Constructor = (props) => {
+    const { setConstructorView, setConstructor } = useContext(AppContext);
 
-    const handleDriverOpen = () => {
+    const handleConstructorOpen = () => {
         setTimeout(() => {
-            setDriverView(true);
+            setConstructorView(true);
         }, 150);
 
-        getDriverData();
+        getConstructorData();
     }
 
-    async function getDriverData() {
+    async function getConstructorData() {
         const { data, err } = await props.supabase
-            .from("drivers")
+            .from("constructors")
             .select()
-            .eq("driverRef", props.driver.drivers.driverRef)
+            .eq("constructorRef", props.constructor.constructors.constructorRef)
 
         if (err) {
             console.error(err)
@@ -24,35 +24,35 @@ const Driver = (props) => {
         }
 
         if (!data || data.length === 0) {
-            console.error(`Driver with reference: ${props.driver.drivers.driverRef} does not exist in the DB ${err}`)
+            console.error(`Constructor with reference: ${props.constructor.constructors.constructorRef} does not exist in the DB ${err}`)
             return
         }
 
-        setDriver(data);
+        setConstructor(data);
     }
 
     return (
         <tr className="text-left text-base">
             <td>
-                {props.driver.position}
+                {props.constructor.position}
             </td>
             {/* Use the a tag for Driver Modal can use onClick */}
             <td>
                 <a target="_blank" rel="noopener noreferrer"
                     className="w-40 text-center cursor-pointer"
-                    onClick={handleDriverOpen}>
-                    {props.driver.drivers.forename} {props.driver.drivers.surname}
+                    onClick={handleConstructorOpen}>
+                    {props.constructor.constructors.name}
                 </a>
             </td>
 
             <td>
-                {props.driver.points}
+                {props.constructor.points}
             </td>
             <td className="text-base px-4 mx-8">
-                {props.driver.wins}
+                {props.constructor.wins}
             </td>
         </tr>
     );
 }
 
-export default Driver;
+export default Constructor;

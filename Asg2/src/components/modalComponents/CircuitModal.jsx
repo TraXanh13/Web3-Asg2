@@ -3,27 +3,26 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
-const ConstructorModal = (props) => {
+const CircuitModal = (props) => {
     //This state is temporary and is use for testing, please change this to a proper one 
-    const { constructor, constructorView, setConstructorView } = useContext(AppContext);
-
+    const { circuit, circuitView, setCircuitView } = useContext(AppContext);
     const [isDataLoaded, setIsDataLoaded] = useState(false);
 
     useEffect(() => {
-        if (constructor) {
+        if (circuit) {
             setIsDataLoaded(true);;
         }
-    }, [constructor]);
+    }, [circuit]);
 
 
-    const handleConstructorClose = () => {
-        setConstructorView(false);
+    const handleCircuitClose = () => {
+        setCircuitView(false);
     }
 
     return (
         <>
             {/*Please change the show to the right state name after testing */}
-            <Transition appear show={constructorView} as={Fragment}>
+            <Transition appear show={circuitView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}
                     <Transition.Child
@@ -54,13 +53,13 @@ const ConstructorModal = (props) => {
                                 {/* Modal header */}
                                 <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t dark:border-gray-600">
                                     <Dialog.Title as="h3" className="text-xl font-semibold text-gray-900 dark:text-white">
-                                        Constructor Details
+                                        Circuit Details
                                     </Dialog.Title>
                                     <div>
                                         <Button>
-                                            Empty Favorites
+                                            Add to Favorites
                                         </Button>
-                                        <Button onClick={handleConstructorClose} >
+                                        <Button onClick={handleCircuitClose} >
                                             Close
                                         </Button>
                                     </div>
@@ -70,13 +69,14 @@ const ConstructorModal = (props) => {
                                 <div className="flex flex-col items-center justify-between p-2 mx-3">
                                     {isDataLoaded ? (
                                         <>
-                                            <div className="w-fit p-4 text-white">
-                                                <h1 className="text-center">Constructor Image</h1>
+                                            <div className="flex w-fit p-4 text-white">
+                                                <h1 className="flex-row text-center px-2">Circuit Image</h1>
+                                                <h1 className="flex-row text-center" >Circuit Map</h1>
                                             </div>
                                             <div className="w-fit p-4 text-white">
-                                                <p>{constructor[0].name}</p>
-                                                <p>{constructor[0].nationality}</p>
-                                                <p>{constructor[0].url}</p>
+                                                <p>{circuit[0].name}</p>
+                                                <p>{circuit[0].location}, {circuit[0].country} </p>
+                                                <p>{circuit[0].url}</p>
                                             </div>
 
                                         </>
@@ -101,4 +101,4 @@ const ConstructorModal = (props) => {
 
 }
 
-export default ConstructorModal;
+export default CircuitModal;

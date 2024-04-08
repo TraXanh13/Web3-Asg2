@@ -10,6 +10,7 @@ import AllStandings from './standingsComponents/AllStandings';
 import FavoritesModal from './modalComponents/FavoriteModal';
 import ConstructorModal from './modalComponents/ConstructorModal';
 import DriverModal from './modalComponents/DriverModal';
+import CircuitModal from './modalComponents/CircuitModal';
 
 const Dashboard = (props) => {
     const { view } = useContext(AppContext);
@@ -32,8 +33,9 @@ const Dashboard = (props) => {
 
             </div>
             <FavoritesModal />
-            {/* <ConstructorModal /> */}
+            <ConstructorModal />
             <DriverModal />
+            <CircuitModal />
         </main>
 
     )

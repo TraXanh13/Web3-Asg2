@@ -16,6 +16,15 @@ export const F1Context = ({ children }) => {
     //The view of the favorites popup
     const [favoriteView, setFavoriteView] = useState(false);
 
+    //The view of the driver popup
+    const [driverView, setDriverView] = useState(false);
+
+    //The view of the constructor popup
+    const [constructorView, setConstructorView] = useState(false);
+
+    //The view of the circuit popup
+    const [circuitView, setCircuitView] = useState(false);
+
     // The list of drivers, times, and positions in the qualifying stage
     const [qualifying, setQualifying] = useState([]);
 
@@ -28,8 +37,14 @@ export const F1Context = ({ children }) => {
     // The constructors standings after a specific race
     const [constructorStandings, setConstructorStandings] = useState([]);
 
-    //Driver Data
+    //The data of a specific driver
     const [driver, setDriver] = useState(null);
+
+    //The data of a specific constructor
+    const [constructor, setConstructor] = useState(null);
+
+    //The data of a specific circuit
+    const [circuit, setCircuit] = useState(null);
 
     // The list of races in a season
     const [races, setRaces] = useState([]);
@@ -51,6 +66,10 @@ export const F1Context = ({ children }) => {
             setResults,
             driver,
             setDriver,
+            constructor,
+            setConstructor,
+            circuit,
+            setCircuit,
             driverStandings,
             setDriverStandings,
             constructorStandings,
@@ -61,6 +80,12 @@ export const F1Context = ({ children }) => {
             //views
             favoriteView,
             setFavoriteView,
+            driverView,
+            setDriverView,
+            constructorView,
+            setConstructorView,
+            circuitView,
+            setCircuitView,
 
             //testing states
             testView,

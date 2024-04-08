@@ -5,13 +5,12 @@ import Button from "../functionalComponents/Button";
 
 const DriverModal = (props) => {
     //This state is temporary and is use for testing, please change this to a proper one 
-    const { driver, testView, setTestView } = useContext(AppContext);
+    const { driver, driverView, setDriverView } = useContext(AppContext);
     const [isDataLoaded, setIsDataLoaded] = useState(false);
 
     const handleDriverClose = () => {
-        setTestView(false);
+        setDriverView(false);
     }
-
 
     useEffect(() => {
         if (driver) {
@@ -19,13 +18,10 @@ const DriverModal = (props) => {
         }
     }, [driver]);
 
-
-
-
     return (
         <>
             {/*Please change the show to the right state name after testing */}
-            <Transition appear show={testView} as={Fragment}>
+            <Transition appear show={driverView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}
                     <Transition.Child
@@ -69,20 +65,21 @@ const DriverModal = (props) => {
                                 </div>
 
                                 {/* Modal body */}
-                                <div className="flex items-center justify-between p-2 mx-3">
+                                <div className="flex flex-col items-center justify-between p-2 mx-3">
                                     {isDataLoaded ? (
                                         <>
-                                            <div className="w-fit p-4 text-white">
-                                                <p>{driver[0].forename} {driver[0].surname}</p>
-                                                <p>{driver[0].dob}</p>
-                                                <p>Age</p>
-                                                <p>{driver[0].nationality}</p>
-                                                <p>{driver[0].url}</p>
-                                            </div>
                                             <div className="w-fit p-4 text-white">
                                                 <h1 className="text-center">Driver Image</h1>
                                                 <p>Something</p>
                                             </div>
+                                            <div className="w-fit p-4 text-white">
+                                                <p className="text-center">{driver[0].forename} {driver[0].surname}</p>
+                                                <p className="text-center">{driver[0].dob}</p>
+                                                <p className="text-center">Age</p>
+                                                <p className="text-center">{driver[0].nationality}</p>
+                                                <p className="text-center">{driver[0].url}</p>
+                                            </div>
+
                                         </>
                                     ) : (
                                         //Placeholder for content

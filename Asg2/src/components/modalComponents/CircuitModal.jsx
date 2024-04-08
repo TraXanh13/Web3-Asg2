@@ -1,6 +1,8 @@
 import { useState, useContext, Fragment, useEffect } from "react";
 import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
+import {MapContainer, TileLayer} from 'react-leaflet'
+import "leaflet/dist/leaflet.css"
 import Button from "../functionalComponents/Button";
 
 const CircuitModal = (props) => {
@@ -10,7 +12,8 @@ const CircuitModal = (props) => {
 
     useEffect(() => {
         if (circuit) {
-            setIsDataLoaded(true);;
+            setIsDataLoaded(true);
+            console.log(circuit[0].lat)
         }
     }, [circuit]);
 
@@ -18,7 +21,6 @@ const CircuitModal = (props) => {
     const handleCircuitClose = () => {
         setCircuitView(false);
     }
-
     return (
         <>
             {/*Please change the show to the right state name after testing */}
@@ -71,7 +73,13 @@ const CircuitModal = (props) => {
                                         <>
                                             <div className="flex w-fit p-4 text-white">
                                                 <h1 className="flex-row text-center px-2">Circuit Image</h1>
-                                                <h1 className="flex-row text-center" >Circuit Map</h1>
+                                                {/* <h1 className="flex-row text-center" >Circuit Map</h1> */}
+                                                <MapContainer center={[circuit[0].lat, circuit[0].lng]} zoom={13}>
+                                                    <TileLayer 
+                                                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                    />
+                                                </MapContainer>
                                             </div>
                                             <div className="w-fit p-4 text-white">
                                                 <p>{circuit[0].name}</p>

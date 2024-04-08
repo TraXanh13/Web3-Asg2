@@ -1,0 +1,9 @@
+.leaflet-container {
+	height: auto;
+	width: 100%;
+}
+
+.circuitImg {
+	height: 25vh;
+	width: 50vh;
+}

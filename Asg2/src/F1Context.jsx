@@ -72,26 +72,39 @@ export const F1Context = ({ children }) => {
 
     return (
         <AppContext.Provider value={{
+            // Login
             loggedIn,
             setLogin,
+
+            // Season
             season,
             setSeason,
-            view,
-            setView,
+
+            // Results data
             qualifying,
             setQualifying,
             results,
             setResults,
+
+            // Driver Data
             driver,
             setDriver,
+
+            // Constructor Data
             constructor,
             setConstructor,
+
+            // Circuit Data
             circuit,
             setCircuit,
+
+            // Standings Data
             driverStandings,
             setDriverStandings,
             constructorStandings,
             setConstructorStandings,
+
+            // Races list
             races,
             setRaces,
 
@@ -100,6 +113,7 @@ export const F1Context = ({ children }) => {
             driverView, setDriverView,
             constructorView, setConstructorView,
             circuitView, setCircuitView,
+
 
             //loading
             standingsLoading, setStandingsLoading,

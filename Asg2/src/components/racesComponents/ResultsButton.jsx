@@ -3,8 +3,8 @@ import { useContext } from "react"
 import { AppContext } from "../../F1Context"
 
 const ResultsButton = (props) => {
-    const { setView: setView, setQualifying: setQualifying, setResults } = useContext(AppContext)
-    
+    const { setView, setQualifying, setResults, results } = useContext(AppContext)
+
     const buttonHandler = () => {
         setView("results");
         fetchResults();
@@ -17,7 +17,7 @@ const ResultsButton = (props) => {
     * @raceId: the spefic race that is being checked
     */
     async function fetchResults() {
-        const {data, err} = await props.supabase
+        const { data, err } = await props.supabase
             .from('results')
             .select(`
                 *,
@@ -26,18 +26,18 @@ const ResultsButton = (props) => {
                 constructors (*)
             `)
             .eq("raceId", props.raceId)
-            .order("positionOrder", {ascending: true});
-            
-        if(err){
+            .order("positionOrder", { ascending: true });
+
+        if (err) {
             console.error(err)
             return
         }
-        
-        if(!data || data.length === 0){
+
+        if (!data || data.length === 0) {
             console.error(`${props.raceId} does not exist in the DB ${err}`)
             return
         }
-        
+
         setResults(data)
     }
 
@@ -47,7 +47,7 @@ const ResultsButton = (props) => {
     * @raceId: the spefic race that is being checked
     */
     async function fetchQualifying() {
-        const {data, err} = await props.supabase
+        const { data, err } = await props.supabase
             .from('qualifying')
             // Replacing the foreign keys with the specific drivers, races, and constructors info
             .select(`
@@ -58,20 +58,20 @@ const ResultsButton = (props) => {
             `)
             .eq("raceId", props.raceId)
 
-        if(err){
+        if (err) {
             console.error(err)
             return
         }
-        
-        if(!data || data.length === 0){
+
+        if (!data || data.length === 0) {
             console.error(`${props.raceId} does not exist in the DB ${err}`)
             return
         }
-        
+
         setQualifying(data)
     }
 
-    return(
+    return (
         <button onClick={buttonHandler} >
             <img src="/images/icons/clipboard.png" title="Results icon" alt="Results icon" className="mr-2"></img>
         </button>

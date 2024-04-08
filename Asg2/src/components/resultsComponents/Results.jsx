@@ -3,17 +3,17 @@ import Winner from './results/Winner'
 import SecondAndThird from './results/SecondAndThird';
 import OtherDrivers from './results/OtherDrivers';
 import Qualifying from './qualifying/Qualifying'
-import { useContext} from 'react';
+import { useContext } from 'react';
 import { AppContext } from '../../F1Context';
 
-const Results = () => {
-    const { results: results, qualifying: qualifying } = useContext(AppContext)
-    
-    return(        
+const Results = (props) => {
+    const { results, qualifying } = useContext(AppContext)
+
+    return (
         <div className="border flex grow flex-wrap h-full relative overflow-hidden">
             {/* Results Header */}
-            <h2 className='font-bold text-xl  w-full text-center sticky top-0 bg-white z-10'>{results.length > 0? (results[0].races.name + " " + results[0].races.year):"Races"}</h2>
-            
+            <h2 className='font-bold text-xl w-full text-center sticky top-0 bg-white z-2'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
+
             {/* Qualifying Section */}
             <div className="border-r-2 m-0 w-2/5 pl-2">
                 <h3 className='font-bold text-xl text-center'>Qualifying</h3>
@@ -29,7 +29,7 @@ const Results = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {qualifying.map((result, i) => <Qualifying result={result} key={i}/>)}
+                        {qualifying.map((result, i) => <Qualifying result={result} key={i} supabase={props.supabase} />)}
                     </tbody>
                 </table>
             </div>
@@ -52,7 +52,7 @@ const Results = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {results.slice(3).map((result, i) => <OtherDrivers result={result} key={i}/>)}
+                                {results.slice(3).map((result, i) => <OtherDrivers result={result} key={i} />)}
                             </tbody>
                         </table>
                     </div>

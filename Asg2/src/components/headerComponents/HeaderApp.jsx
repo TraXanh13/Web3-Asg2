@@ -24,12 +24,6 @@ const HeaderApp = (props) => {
     }
 
     return (
-        // 
-        // <header className="header">
-        //     <HeaderSeasonSelect seasons={seasons}/>
-        //     <HeaderMenu />
-        // </header>
-
         <header>
             <nav className="bg-gray-200 border-gray-200 px-2 lg:px-3 py-2 dark:white">
                 <div className="flex flex-wrap justify-between items-end mx-auto">

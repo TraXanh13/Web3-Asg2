@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
-const ConstructorModal = (props) => {
+const ConstructorModal = () => {
     //This state is temporary and is use for testing, please change this to a proper one 
     const {
         constructor,
@@ -32,7 +32,7 @@ const ConstructorModal = (props) => {
 
     const addToFavorites = () => {
         if (!inFavorites) {
-            setFavoriteConstructors([...favoriteConstructors], constructor[0]);
+            setFavoriteConstructors([...favoriteConstructors, constructor[0]]);
         }
     }
 

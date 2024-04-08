@@ -8,7 +8,7 @@ const SecondAndThird = (props) => {
     if (results.length > 0) {
         return (
             // <div className="flex flex-col border col-span-3 row-span-3">
-            <div className="flex flex-col border h-fit m-0">
+            <div className="flex flex-col h-fit m-0">
                 <SecondAndThirdCards race={results[1]} medal='🥈' supabase={props.supabase} />
                 <SecondAndThirdCards race={results[2]} medal='🥉' supabase={props.supabase} />
             </div>

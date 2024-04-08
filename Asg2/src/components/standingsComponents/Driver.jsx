@@ -5,7 +5,7 @@ import DriverView from "../functionalComponents/DriverView";
 const Driver = (props) => {
 
     return (
-        <tr className="text-left text-base animate-fade-right animate-delay-200 animate-ease-in-out">
+        <tr className="text-left text-base animate-fade-right animate-delay-200 animate-ease-in-out odd:bg-red-200 even:bg-red-50">
             <td>
                 {props.driver.position}
             </td>

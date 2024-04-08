@@ -3,7 +3,7 @@ import ConstructorView from "../functionalComponents/ConstructorView";
 const Constructor = (props) => {
 
     return (
-        <tr className="text-left text-base">
+        <tr className="text-left text-base odd:bg-red-200 even:bg-red-50 animate-delay-200 animate-ease-in-out">
             <td>
                 {props.constructor.position}
             </td>

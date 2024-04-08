@@ -6,6 +6,16 @@ import ConstructorView from "../../functionalComponents/ConstructorView"
 const Winner = (props) => {
     const { results: results } = useContext(AppContext)
 
+    let url = `http://purecatamphetamine.github.io/country-flag-icons/3x2/${results[0].drivers.countryCode}.svg`;
+    let isEmpty = false;
+
+    if (results[0].fastestLapTime == null) {
+        isEmpty = true;
+    }
+
+
+    console.log(results[0].fastestLapTime);
+
     if (results.length > 0) {
         return (
             // <div className="relative border col-span-3 row-span-10 bg-cover bg-center">
@@ -48,13 +58,13 @@ const Winner = (props) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{results[0].fastestLapTime}</td>
+                            <td>{!isEmpty ? results[0].fastestLapTime : "N/A"}</td>
                             <td>{results[0].time}</td>
                         </tr>
                     </tbody>
                 </table>
-                <div className="absolute top-0 bg-cover w-full h-full bg-white bg-center opacity-70 -z-50" />
-                <div className="absolute top-0 bg-cover w-full h-full bg-center opacity-20 -z-50"
+                <div className="absolute top-0 bg-cover w-full h-full bg-white bg-center opacity-80 -z-50" />
+                <div className="absolute top-0 bg-cover w-full h-full bg-center opacity-30 -z-50"
                     style={{ backgroundImage: `url("http://purecatamphetamine.github.io/country-flag-icons/3x2/${results[0].drivers.countryCode}.svg")` }} />
             </div>
         )

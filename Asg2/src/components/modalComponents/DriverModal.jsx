@@ -2,9 +2,9 @@ import { useContext, Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
+import dateFormat from "dateformat";
 
 const DriverModal = () => {
-    //This state is temporary and is use for testing, please change this to a proper one 
     const { driver,
         driverView,
         setDriverView,
@@ -35,9 +35,22 @@ const DriverModal = () => {
         }
     }
 
+    function calculateAge(dob) {
+
+        var today = new Date();
+        var birthday = new Date(dob);
+        var age = today.getFullYear() - birthday.getFullYear();
+        var month = today.getMonth() - birthday.getMonth();
+
+        if (month < 0 || (month === 0 && today.getDate < birthday.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+
     return (
         <>
-            {/*Please change the show to the right state name after testing */}
             <Transition appear show={driverView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}
@@ -65,10 +78,10 @@ const DriverModal = () => {
                             leaveTo="opacity-0 scale-95"
                         >
 
-                            <Dialog.Panel className="relative bg-white rounded-lg shadow dark:bg-gray-700" >
+                            <Dialog.Panel className="relative bg-gray-200 rounded-lg shadow" >
                                 {/* Modal header */}
-                                <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t dark:border-gray-600">
-                                    <Dialog.Title as="h1" className="text-xl font-semibold text-gray-900 dark:text-white">
+                                <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t border-gray-800">
+                                    <Dialog.Title as="h1" className="text-2xl font-montserrat font-bold text-black">
                                         Driver Details
                                     </Dialog.Title>
                                     <div>
@@ -82,19 +95,20 @@ const DriverModal = () => {
                                 </div>
 
                                 {/* Modal body */}
-                                <div className="flex flex-col items-center justify-between p-2 mx-3">
+                                <div className="flex flex-col items-center justify-between p-2 mx-3 text-black font-barlow-condensed">
                                     {isDataLoaded ? (
                                         <>
-                                            <div className="w-fit p-4 text-white">
-                                                <h1 className="text-center">Driver Image</h1>
-                                                <p>Something</p>
+                                            <div className="w-fit p-4">
+                                                <img src="https://placehold.co/250"></img>
+
                                             </div>
-                                            <div className="w-fit p-4 text-white">
-                                                <p className="text-center">{driver[0].forename} {driver[0].surname}</p>
-                                                <p className="text-center">{driver[0].dob}</p>
-                                                <p className="text-center">Age</p>
-                                                <p className="text-center">{driver[0].nationality}</p>
-                                                <p className="text-center">{driver[0].url}</p>
+                                            <div className="w-fit p-4 text-center font-semibold text-xl">
+                                                <p className="text-2xl py-1">{driver[0].forename} {driver[0].surname}</p>
+                                                <p className="py-1">Date of Birth: {dateFormat(driver[0].dob, "mmmm dS, yyyy")}</p>
+                                                <p className="py-1">Age: {calculateAge(driver[0].dob)}</p>
+                                                <p className="py-1">Nationality: {driver[0].nationality}</p>
+
+                                                <a href={driver[0].url} target="_blank" className=" hover:text-green-600">Link to Wiki</a>
                                             </div>
 
                                         </>

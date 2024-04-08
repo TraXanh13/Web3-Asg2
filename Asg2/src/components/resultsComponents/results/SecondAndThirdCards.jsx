@@ -30,6 +30,7 @@ const SecondAndThirdCards = (props) => {
                 <h3 className="font-semibold">Points</h3>
                 <h4 className="text-center">{props.race.points}</h4>
             </div>
+            <div className="absolute top-0 left-0 w-1/2 min-h-screen bg-white bg-no-repeat opacity-80 -z-50 mx-2" />
             <div className="absolute top-0 left-0 w-1/2 min-h-screen bg-no-repeat opacity-30 -z-50 mx-2"
                 style={{ backgroundImage: `url("http://purecatamphetamine.github.io/country-flag-icons/3x2/${props.race.drivers.countryCode}.svg")` }} />
         </div>

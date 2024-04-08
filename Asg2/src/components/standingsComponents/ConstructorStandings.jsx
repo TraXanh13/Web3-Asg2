@@ -23,7 +23,7 @@ const ConstructorStandings = (props) => {
             <table className="table-auto w-96">
                 {/* Table Header */}
                 <thead className="">
-                    <tr className="text-left">
+                    <tr className="text-left ">
                         <StandingsHeader>Pos</StandingsHeader>
                         <StandingsHeader></StandingsHeader>
                         <StandingsHeader>Pts</StandingsHeader>

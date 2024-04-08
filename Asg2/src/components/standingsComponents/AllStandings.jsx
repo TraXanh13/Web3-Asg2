@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "../../F1Context";
 import DriverStandings from "./DriverStandings";
 import ConstructorStandings from "./ConstructorStandings";
-import 'ldrs/infinity'
+import PropagateLoader from "react-spinners/PropagateLoader"
 
 const AllStandings = (props) => {
     const { constructorStandings, driverStandings, standingsLoading, setStandingsLoading } = useContext(AppContext);
@@ -13,16 +13,13 @@ const AllStandings = (props) => {
 
     if (standingsLoading) {
         return (
-            // Default values shown
-            <div className="absolute top-1/2 right-[30%] transform -translate-x-1/2 -translate-y-1/2">
-                <l-infinity
-                    size="140"
-                    stroke="10"
-                    bg-opacity="0.23"
-                    speed="1.4"
-                    color="red"
-                ></l-infinity>
+            <div className="absolute top-1/2 right-[35%] transform -translate-x-1/2 -translate-y-1/2">
+                <PropagateLoader
+                    color="#e11c1c"
+                    size={20}
+                />
             </div>
+
 
         )
     }

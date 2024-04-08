@@ -5,15 +5,25 @@ import Button from "../functionalComponents/Button";
 
 const ConstructorModal = (props) => {
     //This state is temporary and is use for testing, please change this to a proper one 
-    const { constructor, constructorView, setConstructorView } = useContext(AppContext);
+    const {
+        constructor,
+        favoriteConstructors,
+        setFavoriteConstructors,
+        constructorView,
+        setConstructorView } = useContext(AppContext);
 
     const [isDataLoaded, setIsDataLoaded] = useState(false);
 
+    const [inFavorites, setInFavorites] = useState(false);
+
     useEffect(() => {
         if (constructor) {
-            setIsDataLoaded(true);;
+            setIsDataLoaded(true);
         }
-    }, [constructor]);
+        const isInFavorites = favoriteConstructors.some(favConstructor => favConstructor.constructorRef === constructor[0].constructorRef);
+
+        setInFavorites(isInFavorites);
+    }, [constructor, favoriteConstructors]);
 
 
     const handleConstructorClose = () => {
@@ -21,7 +31,10 @@ const ConstructorModal = (props) => {
     }
 
     const addToFavorites = () => {
-
+        if (!inFavorites) {
+            favoriteConstructors.push(constructor[0]);
+            setFavoriteConstructors([...favoriteConstructors]);
+        }
     }
 
     return (
@@ -61,8 +74,8 @@ const ConstructorModal = (props) => {
                                         Constructor Details
                                     </Dialog.Title>
                                     <div>
-                                        <Button onClick={addToFavorites}>
-                                            Empty Favorites
+                                        <Button disabledStatus={inFavorites} onClick={addToFavorites}>
+                                            {inFavorites ? 'Already in Favorites' : 'Add to Favorites'}
                                         </Button>
                                         <Button onClick={handleConstructorClose} >
                                             Close

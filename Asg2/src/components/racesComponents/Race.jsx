@@ -1,19 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
 import ResultsButton from "./ResultsButton";
 import StandingsButton from "./StandingsButton";
-import { AppContext } from "../../F1Context";
+import CircuitView from "../functionalComponents/CircuitView";
 
 const Race = (props) => {
-    const { setCircuitView, setCircuit } = useContext(AppContext);
-
-    const handleCircuitOpen = () => {
-        setTimeout(() => {
-            setCircuitView(true);
-        }, 150);
-
-        getCircuitData();
-    }
 
     function convertDate(date) {
         const month = {
@@ -34,34 +24,16 @@ const Race = (props) => {
         return (`${month[date.substring(5, 7)]} ${date.substring(8)}`)
     }
 
-    async function getCircuitData() {
-        const { data, err } = await props.supabase
-            .from("circuits")
-            .select()
-            .eq("circuitId", props.race.circuitId)
-
-        if (err) {
-            console.error(err);
-            return
-        }
-
-        if (!data || data.length === 0) {
-            console.error(`${props.race.circuitId} does not exist in the DB ${err}`);
-            return
-        }
-
-        setCircuit(data);
-    }
-
-
     return (
-        <div className="flex justify-between">
-            <a target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleCircuitOpen}
-                className="min-w-52 cursor-pointer">
-                {props.race.round}. {props.race.name}
-            </a>
+        <div className="flex justify-between w-25 pt-0.5">
+            <h2 className=" w-6">{props.race.round}.</h2>
+            <CircuitView
+                supabase={props.supabase}
+                circuitId={props.race.circuitId}
+                round={props.race.round}
+                name={props.race.name}
+                className="min-w-52 cursor-pointer text-left"
+            />
             <div className="mx-12"> {convertDate(props.race.date)}</div>
             <div className="flex overflow-hidden whitespace-nowrap">
                 <ResultsButton raceId={props.race.raceId} supabase={props.supabase} />

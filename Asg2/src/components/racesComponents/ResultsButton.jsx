@@ -3,10 +3,11 @@ import { useContext } from "react"
 import { AppContext } from "../../F1Context"
 
 const ResultsButton = (props) => {
-    const { setView, setQualifying, setResults, results } = useContext(AppContext)
+    const { setView, setQualifying, setResults, setResultsLoading } = useContext(AppContext)
 
     const buttonHandler = () => {
         setView("results");
+        setResultsLoading(true);
         fetchResults();
         fetchQualifying();
     }

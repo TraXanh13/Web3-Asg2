@@ -7,20 +7,45 @@ import Button from "../functionalComponents/Button";
 
 const CircuitModal = (props) => {
     //This state is temporary and is use for testing, please change this to a proper one 
-    const { circuit, circuitView, setCircuitView } = useContext(AppContext);
+    const {
+        circuit,
+        circuitView,
+        setCircuitView,
+        favoriteCircuits,
+        setFavoriteCircuits
+    } = useContext(AppContext);
+
     const [isDataLoaded, setIsDataLoaded] = useState(false);
+    const [inFavorites, setInFavorites] = useState(false);
 
     useEffect(() => {
         if (circuit) {
             setIsDataLoaded(true);
             console.log(circuit[0].lat)
         }
-    }, [circuit]);
 
+        //check if the current circuit is in the favorites
+        const isInFavorites = favoriteCircuits.some(favCircuit => favCircuit.circuitRef === circuit[0].circuitRef);
+
+        setInFavorites(isInFavorites);
+
+    }, [circuit, favoriteCircuits]);
 
     const handleCircuitClose = () => {
         setCircuitView(false);
     }
+<<<<<<< HEAD
+=======
+
+    const addToFavorites = () => {
+
+        if (!inFavorites) {
+            // If not already in favorites, add to favorites
+            setFavoriteCircuits([...favoriteCircuits, circuit[0]]);
+        }
+    }
+
+>>>>>>> main
     return (
         <>
             {/*Please change the show to the right state name after testing */}
@@ -40,7 +65,7 @@ const CircuitModal = (props) => {
                     </Transition.Child>
 
                     {/* Main Content */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-full max-w-2xl max-h-full">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-full max-w-2xl ">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -58,8 +83,8 @@ const CircuitModal = (props) => {
                                         Circuit Details
                                     </Dialog.Title>
                                     <div>
-                                        <Button>
-                                            Add to Favorites
+                                        <Button disabledStatus={inFavorites} onClick={addToFavorites}>
+                                            {inFavorites ? 'Already in Favorites' : 'Add to Favorites'}
                                         </Button>
                                         <Button onClick={handleCircuitClose} >
                                             Close

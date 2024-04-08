@@ -49,8 +49,14 @@ export const F1Context = ({ children }) => {
     // The list of races in a season
     const [races, setRaces] = useState([]);
 
+    /**
+     * Loader States
+     */
     //This is for loading in the Standings Component
     const [standingsLoading, setStandingsLoading] = useState(true);
+
+    //This is for loading the Resuilts Component
+    const [resultsLoading, setResultsLoading] = useState(true);
 
     /**
      * The following states are for the Favorites Modal
@@ -103,20 +109,16 @@ export const F1Context = ({ children }) => {
             setRaces,
 
             //views
-            view,
-            setView,
-            favoriteView,
-            setFavoriteView,
-            driverView,
-            setDriverView,
-            constructorView,
-            setConstructorView,
-            circuitView,
-            setCircuitView,
+            favoriteView, setFavoriteView,
+            driverView, setDriverView,
+            constructorView, setConstructorView,
+            circuitView, setCircuitView,
+            view, setView,
+
 
             //loading
-            standingsLoading,
-            setStandingsLoading,
+            standingsLoading, setStandingsLoading,
+            resultsLoading, setResultsLoading,
 
             //favorites
             favoriteDrivers, setFavoriteDrivers,

@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../F1Context";
 import Driver from "./Driver";
 import StandingsHeader from "../functionalComponents/StandingsHeader";
-import 'ldrs/zoomies'
 
 const DriverStandings = (props) => {
     const { driverStandings } = useContext(AppContext);

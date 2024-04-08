@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
-const DriverModal = (props) => {
+const DriverModal = () => {
     //This state is temporary and is use for testing, please change this to a proper one 
     const { driver,
         driverView,
@@ -20,7 +20,7 @@ const DriverModal = (props) => {
 
     useEffect(() => {
         if (driver) {
-            setIsDataLoaded(true);;
+            setIsDataLoaded(true);
         }
         //check if the current circuit is in the favorites
         const isInFavorites = favoriteDrivers.some(favDriver => favDriver.driverRef === driver[0].driverRef);
@@ -31,7 +31,7 @@ const DriverModal = (props) => {
     const addToFavorites = () => {
 
         if (!inFavorites) {
-            setFavoriteDrivers([...favoriteDrivers], driver[0]);
+            setFavoriteDrivers([...favoriteDrivers, driver[0]]);
         }
     }
 

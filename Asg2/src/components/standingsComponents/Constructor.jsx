@@ -1,5 +1,3 @@
-import { useContext } from "react"
-import { AppContext } from "../../F1Context"
 import ConstructorView from "../functionalComponents/ConstructorView";
 
 const Constructor = (props) => {

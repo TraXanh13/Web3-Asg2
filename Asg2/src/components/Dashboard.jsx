@@ -11,6 +11,7 @@ import FavoritesModal from './modalComponents/FavoriteModal';
 import ConstructorModal from './modalComponents/ConstructorModal';
 import DriverModal from './modalComponents/DriverModal';
 import CircuitModal from './modalComponents/CircuitModal';
+import AboutModal from './modalComponents/AboutModal';
 
 const Dashboard = (props) => {
     const { view } = useContext(AppContext);
@@ -21,12 +22,18 @@ const Dashboard = (props) => {
         compView = <Results supabase={props.supabase} />
     } else if (view == "standings") {
         compView = <AllStandings supabase={props.supabase} />
+    } else {
+        compView = <>
+            <div className="border items-center flex justify-center w-full h-full">
+                <h1 className='font-bold text-3xl text-center text-gray-400 py-1'>Choose a race to begin....</h1>
+            </div>
+        </>
     }
 
     return (
         <main className='min-h-full'>
             <HeaderApp supabase={props.supabase} />
-            <div className="absolute w-full flex h-3/4"
+            <div className="absolute w-full flex h-5/6"
             >
                 <Races supabase={props.supabase} />
                 {compView}
@@ -36,6 +43,7 @@ const Dashboard = (props) => {
             <ConstructorModal />
             <DriverModal />
             <CircuitModal />
+            <AboutModal />
         </main>
 
     )

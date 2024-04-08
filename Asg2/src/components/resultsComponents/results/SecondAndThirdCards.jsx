@@ -1,14 +1,26 @@
 /* eslint-disable react/prop-types */
+import DriverView from "../../functionalComponents/DriverView"
+import ConstructorView from "../../functionalComponents/ConstructorView"
+
 const SecondAndThirdCards = (props) => {
-    console.log(props);
 
     return (
         <div className="flex my-2 relative overflow-hidden animate-fade-right animate-delay-300 animate-ease-in-out">
             <h3 className="text-5xl">{props.medal}</h3>
             <img className="w-16" src="https://placehold.co/15" />
             <div className="ml-2 font-bold">
-                <h3 className="">{props.race.drivers.forename} {props.race.drivers.surname}</h3>
-                <h4>{props.race.constructors.name}</h4>
+                <h3 className="">
+                    <DriverView
+                        supabase={props.supabase}
+                        driverRef={props.race.drivers.driverRef}
+                        forename={props.race.drivers.forename}
+                        surname={props.race.drivers.surname} />
+                </h3>
+                <h4>
+                    <ConstructorView supabase={props.supabase}
+                        constructorRef={props.race.constructors.constructorRef}
+                        name={props.race.constructors.name} />
+                </h4>
             </div>
             <div className="ml-auto">
                 <h3 className="font-semibold text-center">Time</h3>

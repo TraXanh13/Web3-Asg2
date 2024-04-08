@@ -32,8 +32,7 @@ const ConstructorModal = (props) => {
 
     const addToFavorites = () => {
         if (!inFavorites) {
-            favoriteConstructors.push(constructor[0]);
-            setFavoriteConstructors([...favoriteConstructors]);
+            setFavoriteConstructors([...favoriteConstructors], constructor[0]);
         }
     }
 

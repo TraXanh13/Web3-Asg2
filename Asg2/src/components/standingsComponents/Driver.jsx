@@ -5,11 +5,11 @@ import DriverView from "../functionalComponents/DriverView";
 const Driver = (props) => {
 
     return (
-        <tr className="text-left text-base">
+        <tr className="text-left text-base animate-fade-right animate-delay-200 animate-ease-in-out">
             <td>
                 {props.driver.position}
             </td>
-            {/* Use the a tag for Driver Modal can use onClick */}
+
             <td>
                 <DriverView supabase={props.supabase}
                     driverRef={props.driver.drivers.driverRef}

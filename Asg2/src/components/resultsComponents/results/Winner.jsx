@@ -1,7 +1,9 @@
 import { useContext } from "react"
 import { AppContext } from "../../../F1Context"
+import DriverView from "../../functionalComponents/DriverView"
+import ConstructorView from "../../functionalComponents/ConstructorView"
 
-const Winner = () => {
+const Winner = (props) => {
     const { results: results } = useContext(AppContext)
 
     if (results.length > 0) {
@@ -10,8 +12,18 @@ const Winner = () => {
             <div className="relative w-1/2 items-stretch m-0 animate-fade-right animate-delay-2000 animate-ease-out">
                 <h3 className="text-center text-5xl my-4">🏆</h3>
                 <img className="w-full h-auto px-4 my-4" src="https://via.placeholder.com/200x100"></img>
-                <h3 className="font-extrabold text-center text-2xl">{results[0].drivers.forename} {results[0].drivers.surname}</h3>
-                <h3 className="font-bold text-center text-xl">{results[0].constructors.name}</h3>
+                <h3 className="font-extrabold text-center text-2xl">
+                    <DriverView
+                        supabase={props.supabase}
+                        driverRef={results[0].drivers.driverRef}
+                        forename={results[0].drivers.forename}
+                        surname={results[0].drivers.surname} />
+                </h3>
+                <h3 className="font-bold text-center text-xl">
+                    <ConstructorView supabase={props.supabase}
+                        constructorRef={results[0].constructors.constructorRef}
+                        name={results[0].constructors.name} />
+                </h3>
                 <table className="w-full text-center my-8">
                     <thead>
                         <tr>

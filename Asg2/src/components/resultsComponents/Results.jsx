@@ -36,21 +36,21 @@ const Results = (props) => {
     }
 
     return (
-        <div className="flex grow flex-wrap h-full relative overflow-hidden p-3 animate-fade-right animate-delay-100 animate-ease-out">
+        <div className="flex grow flex-wrap h-full relative overflow-y-auto p-3 font-montserrat animate-fade-right animate-delay-100 animate-ease-out">
             {/* Results Header */}
-            <h2 className='font-bold text-xl w-full text-center sticky top-0 z-2'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
+            <h2 className='font-bold text-xl w-full text-center sticky top-0 z-20 bg-black text-white py-4'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
 
             {/* Qualifying Section */}
-            <div className=" m-0 w-5/12 p-4 animate-fade-right animate-delay-300 animate-ease-out">
+            <div className=" w-5/12 p-4 animate-fade-right overflow-y-auto no-scrollbar animate-delay-300 animate-ease-out">
                 <div className="flex mb-2 justify-center">
-                    <h3 className='font-bold text-2xl text-center font-montserrat'>Qualifying</h3>
+                    <h3 className='font-bold text-2xl text-center'>Qualifying</h3>
                     <button type="submit" className="absolute right-0 h-6 mr-10" onClick={updateQualifying}>
                         <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
                     </button>
                 </div>
 
                 <table className="text-left border-collapse border-spacing-0 mx-1 ">
-                    <thead>
+                    <thead className=' font-barlow-condensed font-bold text-lg'>
                         <tr>
                             <td className="w-1/12">Pos.</td>
                             <td className="w-1/6">Driver</td>

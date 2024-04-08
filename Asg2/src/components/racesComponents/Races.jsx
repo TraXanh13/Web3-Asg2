@@ -51,7 +51,7 @@ const Races = (props) => {
 
     return (
         <div className="flex flex-col min-w-max pl-4 my-8 overflow-y-auto no-scrollbar">
-            <div className="flex  p-4 justify-between sticky top-0 bg-gray-700 z-10">
+            <div className="flex p-4 justify-between sticky top-0 bg-gray-700 z-10">
                 <h2 className="font-bold text-2xl text-center text-gray-50 font-montserrat cursor-default">Races for {season}</h2>
                 <button type="submit" onClick={updateRaces}>
                     <img src="/images/icons/sort.png" alt="sort icon" title="Sort the races below" className=" fill-white" />

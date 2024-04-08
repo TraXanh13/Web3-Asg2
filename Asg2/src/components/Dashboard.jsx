@@ -45,6 +45,9 @@ const Dashboard = (props) => {
             <CircuitModal />
             <AboutModal />
             <Footer />
+            <div className="absolute top-0 bg-cover w-full h-full bg-center opacity-10 -z-50"
+                    style={{ backgroundImage: `url("/images/F1_Background.png")` }} />
+            
         </main>
 
     )

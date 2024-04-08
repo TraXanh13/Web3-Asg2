@@ -2,7 +2,6 @@
 import DriverView from "../../functionalComponents/DriverView";
 import ConstructorView from "../../functionalComponents/ConstructorView";
 const OtherDrivers = (props) => {
-    console.log(props.result);
     return (
         <tr>
             <td className="text-center">{props.result.positionOrder}.</td>

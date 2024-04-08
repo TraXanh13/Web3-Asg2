@@ -63,7 +63,8 @@ const Winner = (props) => {
                         </tr>
                     </tbody>
                 </table>
-                <div className="absolute top-0 bg-cover w-full h-full bg-center opacity-20 -z-50 bg"
+                <div className="absolute top-0 bg-cover w-full h-full bg-white bg-center opacity-80 -z-50" />
+                <div className="absolute top-0 bg-cover w-full h-full bg-center opacity-30 -z-50"
                     style={{ backgroundImage: `url("http://purecatamphetamine.github.io/country-flag-icons/3x2/${results[0].drivers.countryCode}.svg")` }} />
             </div>
         )

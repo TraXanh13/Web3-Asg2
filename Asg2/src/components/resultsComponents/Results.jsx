@@ -38,7 +38,7 @@ const Results = (props) => {
     return (
         <div className="flex grow flex-wrap h-full relative overflow-hidden p-3 animate-fade-right animate-delay-100 animate-ease-out">
             {/* Results Header */}
-            <h2 className='font-bold font-montserrat text-2xl w-full text-center sticky top-0 bg-white z-2'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
+            <h2 className='font-bold text-xl w-full text-center sticky top-0 z-2'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
 
             {/* Qualifying Section */}
             <div className=" m-0 w-5/12 p-4 animate-fade-right animate-delay-300 animate-ease-out">

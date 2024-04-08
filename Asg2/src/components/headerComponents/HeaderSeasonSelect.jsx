@@ -1,6 +1,7 @@
 import SeasonOption from "./SeasonOption.jsx";
 import { AppContext } from '../../F1Context.jsx';
-import { useContext } from "react";
+import { useContext, Fragment, useState } from "react";
+import { Listbox } from "@headlessui/react";
 
 const HeaderSeasonSelect = (props) => {
 
@@ -18,7 +19,6 @@ const HeaderSeasonSelect = (props) => {
                 {props.seasons.map(s => <SeasonOption key={s.year} season={s} />)}
             </select>
         </div>
-
 
     )
 }

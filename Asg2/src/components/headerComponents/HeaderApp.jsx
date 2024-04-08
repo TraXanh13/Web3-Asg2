@@ -25,7 +25,7 @@ const HeaderApp = (props) => {
 
     return (
         <header>
-            <nav className="bg-gray-200 border-gray-200 px-2 lg:px-3 py-2 dark:white">
+            <nav className=" bg-red-100 border-red-100 px-2 h-24 dark:white">
                 <div className="flex flex-wrap justify-between items-end mx-auto">
                     <div className="lg:flex lg:w-auto lg:order-0">
                         <img src="/images/F1_Fusion_Logo.svg" title="Site Logo" alt="Site Logo" className="h-24 w-auto mx-4" />

@@ -4,13 +4,22 @@ import Constructor from "./Constructor";
 import StandingsHeader from "../functionalComponents/StandingsHeader";
 
 const ConstructorStandings = (props) => {
-    const { constructorStandings } = useContext(AppContext);
+    const { constructorStandings, setConstructorStandings } = useContext(AppContext);
+
+    function filterConstructorStandings() {
+        const copy = [...constructorStandings].reverse();
+
+        setConstructorStandings(copy);
+    }
 
     return (
         <div className="w-fit border ml-10 px-4 justify-items-center animate-fade-right animate-ease-out">
-            <h3 className='font-bold text-lg text-center'>Constructors</h3>
-            {/* another comp here and use map */}
-
+            <div className="flex my-5 justify-center">
+                <h3 className='font-bold text-2xl text-center'>Constructors</h3>
+                <button type="submit" className="absolute right-0 h-6 mr-10 mt-2" onClick={filterConstructorStandings}>
+                    <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
+                </button>
+            </div>
             <table className="table-auto w-96">
                 {/* Table Header */}
                 <thead className="">

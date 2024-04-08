@@ -27,8 +27,8 @@ const AllStandings = (props) => {
     if (constructorStandings.length > 0) {
         return (
             <div className="border flex grow flex-col min-w-max pb-4">
-                <h1 className='font-bold text-xl text-center'>Standings</h1>
-                <h2 className='font-bold text-base text-center'>After Round {constructorStandings[0].races.round}</h2>
+                <h1 className='font-bold text-3xl text-center py-1'>Standings</h1>
+                <h2 className='font-bold text-lg text-center py-1'>After Round {constructorStandings[0].races.round}</h2>
                 <div className="flex grow justify-center">
                     <DriverStandings drivers={driverStandings} supabase={props.supabase} />
                     <ConstructorStandings constructors={constructorStandings} supabase={props.supabase} />

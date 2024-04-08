@@ -9,11 +9,18 @@ import PropagateLoader from "react-spinners/PropagateLoader"
 
 
 const Results = (props) => {
-    const { results, qualifying, resultsLoading, setResultsLoading } = useContext(AppContext)
+    const { results, qualifying, setQualifying, resultsLoading, setResultsLoading } = useContext(AppContext)
 
     useEffect(() => {
         setTimeout(() => setResultsLoading(false), 1500);
     }, [resultsLoading]);
+
+    function updateQualifying() {
+        const copy = [...qualifying].reverse();
+        setQualifying(copy);
+
+        console.log(qualifying);
+    }
 
     if (resultsLoading) {
         return (
@@ -35,7 +42,13 @@ const Results = (props) => {
 
             {/* Qualifying Section */}
             <div className="border-r-2 m-0 w-2/5 pl-2 animate-fade-right animate-delay-300 animate-ease-out">
-                <h3 className='font-bold text-xl text-center'>Qualifying</h3>
+                <div className="flex mb-5 justify-center">
+                    <h3 className='font-bold text-xl text-center'>Qualifying</h3>
+                    <button type="submit" className="absolute right-0 h-6 mr-10" onClick={updateQualifying}>
+                        <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
+                    </button>
+                </div>
+
                 <table className="text-left border-collapse border-spacing-0">
                     <thead>
                         <tr>

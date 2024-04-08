@@ -3,7 +3,6 @@ import DriverView from "../../functionalComponents/DriverView"
 import ConstructorView from "../../functionalComponents/ConstructorView"
 
 const SecondAndThirdCards = (props) => {
-    console.log(props);
 
     return (
         <div className="flex my-2 relative overflow-hidden animate-fade-right animate-delay-300 animate-ease-in-out">

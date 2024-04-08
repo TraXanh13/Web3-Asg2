@@ -31,8 +31,7 @@ const DriverModal = (props) => {
     const addToFavorites = () => {
 
         if (!inFavorites) {
-            favoriteDrivers.push(driver[0]);
-            setFavoriteDrivers([...favoriteDrivers]);
+            setFavoriteDrivers([...favoriteDrivers], driver[0]);
         }
     }
 

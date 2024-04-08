@@ -25,6 +25,9 @@ export const F1Context = ({ children }) => {
     //The view of the circuit popup
     const [circuitView, setCircuitView] = useState(false);
 
+    //The view of the about popup
+    const [aboutView, setAboutView] = useState(false);
+
     // The list of drivers, times, and positions in the qualifying stage
     const [qualifying, setQualifying] = useState([]);
 
@@ -55,7 +58,7 @@ export const F1Context = ({ children }) => {
     //This is for loading in the Standings Component
     const [standingsLoading, setStandingsLoading] = useState(true);
 
-    //This is for loading the Resuilts Component
+    //This is for loading the Results Component
     const [resultsLoading, setResultsLoading] = useState(true);
 
     /**
@@ -114,6 +117,7 @@ export const F1Context = ({ children }) => {
             constructorView, setConstructorView,
             circuitView, setCircuitView,
             view, setView,
+            aboutView, setAboutView,
 
 
             //loading

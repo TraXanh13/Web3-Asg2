@@ -3,7 +3,11 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
-const FavoritesModal = () => {
+import ConstructorView from "../functionalComponents/ConstructorView";
+import DriverView from "../functionalComponents/DriverView";
+import CircuitView from "../functionalComponents/CircuitView";
+
+const FavoritesModal = (props) => {
     const { favoriteView, setFavoriteView } = useContext(AppContext);
 
     const { favoriteDrivers, setFavoriteDrivers,
@@ -12,6 +16,12 @@ const FavoritesModal = () => {
 
     const handleFavoriteClose = () => {
         setFavoriteView(false);
+    }
+
+    const handleEmptyFavorites = () => {
+        setFavoriteCircuits([]);
+        setFavoriteConstructors([])
+        setFavoriteDrivers([])
     }
 
     return (
@@ -51,7 +61,7 @@ const FavoritesModal = () => {
                                         Favorites
                                     </Dialog.Title>
                                     <div>
-                                        <Button>
+                                        <Button onClick={handleEmptyFavorites}>
                                             Empty Favorites
                                         </Button>
                                         <Button onClick={handleFavoriteClose} >
@@ -61,18 +71,43 @@ const FavoritesModal = () => {
                                 </div>
 
                                 {/* Modal body */}
-                                <div className="flex items-center justify-between p-2 mx-3">
-                                    <div className="w-fit p-4 text-white">
+                                <div className="flex items-center justify-evenly p-2 mx-3">
+                                    <div className="w-30 p-4 text-white self-start">
                                         <h1 className="text-center">Drivers</h1>
-                                        <p>Something</p>
+                                        <div className="flex flex-col">
+                                            {favoriteDrivers.map((d, indx) =>
+                                                <DriverView
+                                                    key={indx}
+                                                    supabase={props.supabase}
+                                                    driverRef={d.driverRef}
+                                                    forename={d.forename}
+                                                    surname={d.surname} />)}
+                                        </div>
                                     </div>
-                                    <div className="w-fit p-4 text-white">
+                                    <div className="w-30 p-4 text-white self-start">
                                         <h1 className="text-center">Constructors</h1>
-                                        <p>Something</p>
+                                        <div className="flex flex-col">
+                                            {favoriteConstructors.map((c, indx) =>
+                                                <ConstructorView
+                                                    key={indx}
+                                                    supabase={props.supabase}
+                                                    constructorRef={c.constructorRef}
+                                                    name={c.name} />)}
+                                        </div>
+
                                     </div>
-                                    <div className="w-fit p-4 text-white">
+                                    <div className="w-30 p-4 text-white self-start">
                                         <h1 className="text-center">Circuits</h1>
-                                        <p>Something</p>
+                                        <div className="flex flex-col">
+                                            {favoriteCircuits.map((cc, indx) =>
+                                                <CircuitView
+                                                    key={indx}
+                                                    supabase={props.supabase}
+                                                    circuitRef={cc.constructorRef}
+                                                    round={null}
+                                                    name={cc.name}
+                                                    className="min-w-52 cursor-pointer text-center" />)}
+                                        </div>
                                     </div>
                                 </div>
 

@@ -5,18 +5,39 @@ import Button from "../functionalComponents/Button";
 
 const CircuitModal = (props) => {
     //This state is temporary and is use for testing, please change this to a proper one 
-    const { circuit, circuitView, setCircuitView } = useContext(AppContext);
+    const {
+        circuit,
+        circuitView,
+        setCircuitView,
+        favoriteCircuits,
+        setFavoriteCircuits
+    } = useContext(AppContext);
+
     const [isDataLoaded, setIsDataLoaded] = useState(false);
+    const [inFavorites, setInFavorites] = useState(false);
 
     useEffect(() => {
         if (circuit) {
             setIsDataLoaded(true);;
         }
-    }, [circuit]);
 
+        //check if the current circuit is in the favorites
+        const isInFavorites = favoriteCircuits.some(favCircuit => favCircuit.circuitRef === circuit[0].circuitRef);
+
+        setInFavorites(isInFavorites);
+
+    }, [circuit, favoriteCircuits]);
 
     const handleCircuitClose = () => {
         setCircuitView(false);
+    }
+
+    const addToFavorites = () => {
+
+        if (!inFavorites) {
+            // If not already in favorites, add to favorites
+            setFavoriteCircuits([...favoriteCircuits, circuit[0]]);
+        }
     }
 
     return (
@@ -56,8 +77,8 @@ const CircuitModal = (props) => {
                                         Circuit Details
                                     </Dialog.Title>
                                     <div>
-                                        <Button>
-                                            Add to Favorites
+                                        <Button disabledStatus={inFavorites} onClick={addToFavorites}>
+                                            {inFavorites ? 'Already in Favorites' : 'Add to Favorites'}
                                         </Button>
                                         <Button onClick={handleCircuitClose} >
                                             Close

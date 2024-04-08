@@ -52,6 +52,9 @@ export const F1Context = ({ children }) => {
     //This is a view for testing
     const [testView, setTestView] = useState(false);
 
+    //This is for loading in the Standings Comp
+    const [standingsLoading, setStandingsLoading] = useState(true);
+
     return (
         <AppContext.Provider value={{
             loggedIn,
@@ -90,6 +93,10 @@ export const F1Context = ({ children }) => {
             //testing states
             testView,
             setTestView,
+
+            //loading
+            standingsLoading,
+            setStandingsLoading
 
         }}>
             {children}

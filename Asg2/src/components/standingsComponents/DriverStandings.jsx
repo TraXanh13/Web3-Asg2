@@ -1,13 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../F1Context";
 import Driver from "./Driver";
 import StandingsHeader from "../functionalComponents/StandingsHeader";
+import 'ldrs/zoomies'
 
 const DriverStandings = (props) => {
     const { driverStandings } = useContext(AppContext);
 
     return (
-        <div className="w-fit border ml-10 px-4 justify-items-center">
+        <div className="w-fit border ml-10 px-4 justify-items-center animate-fade-right animate-delay-300 animate-ease-out">
             <h3 className='font-bold text-lg text-center'>Drivers</h3>
             <table className="table-auto w-96">
                 {/* Table Header */}

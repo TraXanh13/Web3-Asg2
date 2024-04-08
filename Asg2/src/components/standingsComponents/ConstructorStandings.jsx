@@ -7,7 +7,7 @@ const ConstructorStandings = (props) => {
     const { constructorStandings } = useContext(AppContext);
 
     return (
-        <div className="w-fit border ml-10 px-4 justify-items-center">
+        <div className="w-fit border ml-10 px-4 justify-items-center animate-fade-right animate-ease-out">
             <h3 className='font-bold text-lg text-center'>Constructors</h3>
             {/* another comp here and use map */}
 

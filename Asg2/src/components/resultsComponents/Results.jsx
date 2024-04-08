@@ -56,9 +56,9 @@ const Results = (props) => {
             {/* Results Section */}
             <div className=" m-0 w-3/5 flex flex-wrap animate-fade-up animate-delay-200 animate-ease-in-out">
                 <h3 className='font-bold text-xl text-center w-full'>Results</h3>
-                <Winner />
+                <Winner supabase={props.supabase} />
                 <div className="flex flex-col items-stretch w-1/2 m-0">
-                    <SecondAndThird />
+                    <SecondAndThird supabase={props.supabase} />
                     <div className="items-stretch overflow-y-auto no-scrollbar animate-fade-up animate-delay-300 animate-ease-in-out">
                         <table className="text-left border-collapse border-spacing-0">
                             <thead>
@@ -71,7 +71,7 @@ const Results = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {results.slice(3).map((result, i) => <OtherDrivers result={result} key={i} />)}
+                                {results.slice(3).map((result, i) => <OtherDrivers result={result} key={i} supabase={props.supabase} />)}
                             </tbody>
                         </table>
                     </div>

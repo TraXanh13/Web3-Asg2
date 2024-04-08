@@ -4,7 +4,6 @@ import { AppContext } from "../../../F1Context"
 const Winner = () => {
     const { results: results } = useContext(AppContext)
 
-
     if (results.length > 0) {
         return (
             // <div className="relative border col-span-3 row-span-10 bg-cover bg-center">

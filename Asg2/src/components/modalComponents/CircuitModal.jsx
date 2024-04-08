@@ -59,7 +59,7 @@ const CircuitModal = (props) => {
                     </Transition.Child>
 
                     {/* Main Content */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-full max-w-2xl max-h-full">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-full max-w-2xl ">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"

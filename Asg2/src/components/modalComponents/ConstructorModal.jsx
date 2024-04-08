@@ -4,16 +4,17 @@ import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
 const ConstructorModal = () => {
-    //This state is temporary and is use for testing, please change this to a proper one 
     const {
         constructor,
         favoriteConstructors,
         setFavoriteConstructors,
         constructorView,
         setConstructorView } = useContext(AppContext);
+    <div className="w-fit p-4">
+        <img src="https://placehold.co/250"></img>
 
+    </div>
     const [isDataLoaded, setIsDataLoaded] = useState(false);
-
     const [inFavorites, setInFavorites] = useState(false);
 
     useEffect(() => {
@@ -38,7 +39,6 @@ const ConstructorModal = () => {
 
     return (
         <>
-            {/*Please change the show to the right state name after testing */}
             <Transition appear show={constructorView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}
@@ -66,10 +66,10 @@ const ConstructorModal = () => {
                             leaveTo="opacity-0 scale-95"
                         >
 
-                            <Dialog.Panel className="relative bg-white rounded-lg shadow dark:bg-gray-700" >
+                            <Dialog.Panel className="relative bg-gray-200 rounded-lg shadow" >
                                 {/* Modal header */}
-                                <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t dark:border-gray-600">
-                                    <Dialog.Title as="h3" className="text-xl font-semibold text-gray-900 dark:text-white">
+                                <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t border-gray-800">
+                                    <Dialog.Title as="h3" className="text-2xl font-montserrat font-bold text-black">
                                         Constructor Details
                                     </Dialog.Title>
                                     <div>
@@ -83,16 +83,16 @@ const ConstructorModal = () => {
                                 </div>
 
                                 {/* Modal body */}
-                                <div className="flex flex-col items-center justify-between p-2 mx-3">
+                                <div className="flex flex-col items-center justify-between p-2 mx-3 text-black font-barlow-condensed font-semibold text-2xl">
                                     {isDataLoaded ? (
                                         <>
-                                            <div className="w-fit p-4 text-white">
-                                                <h1 className="text-center">Constructor Image</h1>
+                                            <div className="w-fit p-4">
+                                                <img src="https://placehold.co/250"></img>
                                             </div>
-                                            <div className="w-fit p-4 text-white">
-                                                <p>{constructor[0].name}</p>
-                                                <p>{constructor[0].nationality}</p>
-                                                <p>{constructor[0].url}</p>
+                                            <div className="w-fit p-4 text-center">
+                                                <p className="text-4xl pb-2">{constructor[0].name}</p>
+                                                <p >Nationality: {constructor[0].nationality}</p>
+                                                <a href={constructor[0].url} target="_blank" className=" hover:text-green-600">Link to Wiki</a>
                                             </div>
 
                                         </>

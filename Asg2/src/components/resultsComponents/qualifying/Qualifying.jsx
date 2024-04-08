@@ -4,7 +4,7 @@ import ConstructorView from "../../functionalComponents/ConstructorView";
 const Qualifying = (props) => {
 
     return (
-        <tr>
+        <tr className="odd:bg-red-200 even:bg-red-50">
             <td>{props.result.position}.</td>
             <td><DriverView supabase={props.supabase}
                 driverRef={props.result.drivers.driverRef}

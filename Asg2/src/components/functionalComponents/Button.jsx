@@ -2,7 +2,7 @@
 
 const Button = ({ className, onClick, children, disabledStatus }) => {
     if (disabledStatus) {
-        className = "text-gray-400 bg-transparent px-2 rounded-lg cursor-not-allowed"
+        className = "font-barlow-condensed text-center text-lg font-bold cursor-not-allowed px-2 text-red-400"
     }
 
     return (
@@ -14,7 +14,7 @@ const Button = ({ className, onClick, children, disabledStatus }) => {
 
 //Setting default props for the button class
 Button.defaultProps = {
-    className: "text-gray-400 bg-transparent px-2 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ms-auto inline-flex justify-right items-center dark:hover:bg-gray-600 dark:hover:text-white", //default className and tailwind styling
+    className: "bg-transparent px-2 py-2 text-lg font-bold hover:text-red-700 font-barlow-condensed ", //default className and tailwind styling
     onClick: () => { },   //default onClick function
     disabledStatus: false,
 }

@@ -36,25 +36,25 @@ const Results = (props) => {
     }
 
     return (
-        <div className="border flex grow flex-wrap h-full relative overflow-hidden animate-fade-right animate-delay-100 animate-ease-out">
+        <div className="flex grow flex-wrap h-full relative overflow-hidden p-3 animate-fade-right animate-delay-100 animate-ease-out">
             {/* Results Header */}
-            <h2 className='font-bold text-xl w-full text-center sticky top-0 bg-white z-2'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
+            <h2 className='font-bold font-montserrat text-2xl w-full text-center sticky top-0 bg-white z-2'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
 
             {/* Qualifying Section */}
-            <div className="border-r-2 m-0 w-2/5 pl-2 animate-fade-right animate-delay-300 animate-ease-out">
-                <div className="flex mb-5 justify-center">
-                    <h3 className='font-bold text-xl text-center'>Qualifying</h3>
+            <div className=" m-0 w-5/12 p-4 animate-fade-right animate-delay-300 animate-ease-out">
+                <div className="flex mb-2 justify-center">
+                    <h3 className='font-bold text-2xl text-center font-montserrat'>Qualifying</h3>
                     <button type="submit" className="absolute right-0 h-6 mr-10" onClick={updateQualifying}>
                         <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
                     </button>
                 </div>
 
-                <table className="text-left border-collapse border-spacing-0">
+                <table className="text-left border-collapse border-spacing-0 mx-1 ">
                     <thead>
                         <tr>
                             <td className="w-1/12">Pos.</td>
-                            <td className="w-1/5">Driver</td>
-                            <td className="w-1/5">Constructor</td>
+                            <td className="w-1/6">Driver</td>
+                            <td className="w-1/6">Constructor</td>
                             <td className="w-1/12">Q1</td>
                             <td className="w-1/12">Q2</td>
                             <td className="w-1/12">Q3</td>
@@ -67,7 +67,7 @@ const Results = (props) => {
             </div>
 
             {/* Results Section */}
-            <div className=" m-0 w-3/5 flex flex-wrap animate-fade-up animate-delay-200 animate-ease-in-out">
+            <div className=" m-0 w-7/12 flex flex-wrap animate-fade-up animate-delay-200 animate-ease-in-out">
                 <h3 className='font-bold text-xl text-center w-full'>Results</h3>
                 <Winner supabase={props.supabase} />
                 <div className="flex flex-col items-stretch w-1/2 m-0">

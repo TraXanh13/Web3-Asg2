@@ -2,7 +2,13 @@
 export default {
   content: ["./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'barlow-condensed': ["Barlow Condensed"],
+        'montserrat': ["Montserrat"]
+      },
+    },
+    
   },
   plugins: [require('tailwindcss-animated')],
 }

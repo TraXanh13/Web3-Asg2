@@ -1,7 +1,7 @@
 import { useState, useContext, Fragment, useEffect } from "react";
 import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
-import {TileLayer, Marker, Popup, MapContainer} from 'react-leaflet'
+import { TileLayer, Marker, Popup, MapContainer } from 'react-leaflet'
 import "leaflet/dist/leaflet.css"
 import Button from "../functionalComponents/Button";
 import './circuitMap.css'
@@ -24,12 +24,12 @@ const CircuitModal = () => {
             setIsDataLoaded(true);
         }
 
-        
+
         //check if the current circuit is in the favorites
         const isInFavorites = favoriteCircuits.some(favCircuit => favCircuit.circuitRef === circuit[0].circuitRef);
-        
+
         setInFavorites(isInFavorites);
-        
+
         setTimeout(function () {
             window.dispatchEvent(new Event("resize"));
         }, 500);
@@ -78,10 +78,10 @@ const CircuitModal = () => {
                             leaveTo="opacity-0 scale-95"
                         >
 
-                            <Dialog.Panel className="relative bg-white rounded-lg shadow dark:bg-gray-700" >
+                            <Dialog.Panel className="relative bg-gray-200 rounded-lg shadow" >
                                 {/* Modal header */}
                                 <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t dark:border-gray-600">
-                                    <Dialog.Title as="h3" className="text-xl font-semibold text-gray-900 dark:text-white">
+                                    <Dialog.Title as="h3" className="text-2xl font-montserrat font-bold text-black">
                                         Circuit Details
                                     </Dialog.Title>
                                     <div>
@@ -95,15 +95,15 @@ const CircuitModal = () => {
                                 </div>
 
                                 {/* Modal body */}
-                                <div className="flex flex-col items-center justify-between p-2 mx-3">
+                                <div className="flex flex-col items-center justify-between p-2 mx-3 text-black text-center font-barlow-condensed font-semibold text-xl">
                                     {isDataLoaded ? (
                                         <>
-                                            <div className="flex w-fit p-4 text-white">
+                                            <div className="flex w-fit p-4">
                                                 {/* <h1 className="flex-row text-center px-2">Circuit Image</h1> */}
                                                 <img className="circuitImg mr-4" src="https://placeholder.co/200"></img>
                                                 {/* <h1 className="flex-row text-center" >Circuit Map</h1> */}
                                                 <MapContainer center={[circuit[0].lat, circuit[0].lng]} zoom={13}>
-                                                    <TileLayer 
+                                                    <TileLayer
                                                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                                     />
@@ -114,10 +114,10 @@ const CircuitModal = () => {
                                                     </Marker>
                                                 </MapContainer>
                                             </div>
-                                            <div className="w-fit p-4 text-white">
-                                                <p>{circuit[0].name}</p>
-                                                <p>{circuit[0].location}, {circuit[0].country} </p>
-                                                <p>{circuit[0].url}</p>
+                                            <div className="w-fit p-4">
+                                                <p className="p-1">{circuit[0].name}</p>
+                                                <p className="p-1">{circuit[0].location}, {circuit[0].country} </p>
+                                                <a href={circuit[0].url} target="_blank" className=" hover:text-green-600">Link to Wiki</a>
                                             </div>
 
                                         </>

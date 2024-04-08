@@ -50,7 +50,7 @@ const Races = (props) => {
     }
 
     return (
-        <div className="border flex flex-col min-w-max px-4 pb-4 sticky top-0">
+        <div className="flex flex-col min-w-max pl-4 pb-4 sticky top-0">
             <div className="flex m-8 justify-center relative">
                 <h2 className="font-bold text-xl text-center">Races for {season}</h2>
                 <button type="submit" className="absolute right-0 h-2" onClick={updateRaces}>

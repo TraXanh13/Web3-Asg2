@@ -74,7 +74,7 @@ const ResultsButton = (props) => {
 
     return (
         <button onClick={buttonHandler} >
-            <img src="/images/icons/clipboard.png" title="Results icon" alt="Results icon" className="mr-2"></img>
+            <img src="/images/icons/clipboard.png" title="Click to fetch results" alt="Results icon" className="mr-2"></img>
         </button>
     )
 }

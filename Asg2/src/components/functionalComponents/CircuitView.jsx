@@ -38,7 +38,8 @@ const CircuitView = (props) => {
         <a target="_blank"
             rel="noopener noreferrer"
             onClick={handleCircuitOpen}
-            className={props.className}>
+            className={props.className}
+            title="Click to open Circuit View">
             {props.name}
         </a>
     )

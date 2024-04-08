@@ -26,7 +26,7 @@ const Dashboard = (props) => {
     } else {
         compView = <>
             <div className="border items-center flex justify-center w-full h-full">
-                <h1 className='font-bold text-3xl text-center text-gray-400 py-1'>Choose a race to begin....</h1>
+                <h1 className='font-bold font-montserrat text-5xl text-center text-gray-300 py-1 hover:cursor-default'>Choose a race to begin....</h1>
             </div>
         </>
     }

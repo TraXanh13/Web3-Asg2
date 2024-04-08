@@ -72,7 +72,7 @@ const StandingsButton = (props) => {
 
     return (
         <button onClick={buttonHandler} >
-            <img src="/images/icons/podium.png" title="Standings icon" alt="Standings icon" className="mr-2"></img>
+            <img src="/images/icons/podium.png" title="Click to fetch standings" alt="Standings icon" className="mr-2"></img>
         </button>
     )
 }

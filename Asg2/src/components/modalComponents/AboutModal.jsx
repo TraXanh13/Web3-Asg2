@@ -56,10 +56,16 @@ const AboutModal = (props) => {
                                 </div>
 
                                 {/* Modal body */}
-                                <div className="flex flex-col items-center justify-between p-2 mx-3">
-                                    <h1>Hello</h1>
-                                    <p>Us</p>
-                                    <p>Us 2</p>
+                                <div className="flex flex-col items-center justify-between p-2 mx-3 text-gray-900 dark:text-white">
+                                    <h1 className="text-xl font-bold my-4 text-center">Welcome to F1 Fusion; an F1 dashboard covering data from 2000-2023</h1>
+                                    <p className="my-4">
+                                        This site was created by: Kyle and Keen
+                                    </p>
+                                    <p className="text-center">
+                                        This project used Vite, React, TailwindCSS, Supabase, and MUI 
+                                        <br/>This site is being hosted on Netlify
+                                    </p> 
+                                    <a className="my-4 underline font-semibold" href="https://github.com/TraXanh13/Web3-Asg2">Github Repo</a>
 
                                 </div>
 

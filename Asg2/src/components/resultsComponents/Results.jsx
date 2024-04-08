@@ -12,7 +12,7 @@ const Results = () => {
     return (
         <div className="border flex grow flex-wrap h-full relative overflow-hidden">
             {/* Results Header */}
-            <h2 className='font-bold text-xl  w-full text-center sticky top-0 bg-white z-10'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
+            <h2 className='font-bold text-xl w-full text-center sticky top-0 bg-white z-2'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
 
             {/* Qualifying Section */}
             <div className="border-r-2 m-0 w-2/5 pl-2">

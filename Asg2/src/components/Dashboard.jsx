@@ -15,7 +15,7 @@ import CircuitModal from './modalComponents/CircuitModal';
 const Dashboard = (props) => {
     const { view } = useContext(AppContext);
 
-    let compView = <h1>None</h1>;
+    let compView = <div></div>;
 
     if (view === "results") {
         compView = <Results />

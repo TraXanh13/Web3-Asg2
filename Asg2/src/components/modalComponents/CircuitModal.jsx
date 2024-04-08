@@ -23,7 +23,7 @@ const CircuitModal = (props) => {
         <>
             {/*Please change the show to the right state name after testing */}
             <Transition appear show={circuitView} as={Fragment}>
-                <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
+                <Dialog as="div" tabIndex={-3} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}
                     <Transition.Child
                         as={Fragment}

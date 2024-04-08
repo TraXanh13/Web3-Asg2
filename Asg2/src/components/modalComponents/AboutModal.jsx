@@ -65,7 +65,7 @@ const AboutModal = (props) => {
                                         This project used Vite, React, TailwindCSS, Supabase, and MUI 
                                         <br/>This site is being hosted on Netlify
                                     </p> 
-                                    <a className="my-4 underline font-semibold" href="https://github.com/TraXanh13/Web3-Asg2">Github Repo</a>
+                                    <a className="my-4 underline font-semibold" href="https://github.com/TraXanh13/Web3-Asg2" target="_blank">Github Repo</a>
 
                                 </div>
 

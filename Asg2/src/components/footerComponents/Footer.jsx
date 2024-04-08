@@ -65,7 +65,7 @@ const Footer = () =>{
       //   </div>
       // </footer>
       <footer className="p-5 bg-slate-800 flex justify-center w-full fixed bottom-0 ">
-        <p className="text-stone-50">F1 Fusion</p>
+        <a className="text-stone-50" href="https://github.com/TraXanh13/Web3-Asg2" target="_blank">F1 Fusion</a>
       </footer>
     )
 }

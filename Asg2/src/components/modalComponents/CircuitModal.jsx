@@ -6,7 +6,7 @@ import "leaflet/dist/leaflet.css"
 import Button from "../functionalComponents/Button";
 import './circuitMap.css'
 
-const CircuitModal = (props) => {
+const CircuitModal = () => {
     //This state is temporary and is use for testing, please change this to a proper one 
     const {
         circuit,

@@ -5,10 +5,17 @@ import StandingsHeader from "../functionalComponents/StandingsHeader";
 import { GoSortDesc } from "react-icons/go";
 import { GoSortAsc } from "react-icons/go";
 
+/*
+ * The table of driver standings
+ */
 const DriverStandings = (props) => {
+    // The list of drivers standings
     const { driverStandings, setDriverStandings } = useContext(AppContext);
+    
+    // Flag to identify if the list is descending
     const [isDescending, setIsDescending] = useState(true);
 
+    // Reverses the list of driver standings
     function filterDriverStandings() {
         const copy = [...driverStandings].reverse();
         setDriverStandings(copy);

@@ -5,10 +5,17 @@ import StandingsHeader from "../functionalComponents/StandingsHeader";
 import { GoSortDesc } from "react-icons/go";
 import { GoSortAsc } from "react-icons/go";
 
+/*
+ * The table of constructors
+ */
 const ConstructorStandings = (props) => {
+    // The list of constructor standings
     const { constructorStandings, setConstructorStandings } = useContext(AppContext);
+
+    // Flag to identify if the list is descending
     const [isDescending, setIsDescending] = useState(true);
 
+    // Reverse the list of constructors
     function filterConstructorStandings() {
         const copy = [...constructorStandings].reverse();
 

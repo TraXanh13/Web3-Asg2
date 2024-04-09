@@ -1,7 +1,9 @@
-import { useContext } from "react"
-import { AppContext } from "../../F1Context"
+/* eslint-disable react/prop-types */
 import DriverView from "../functionalComponents/DriverView";
 
+/*
+ * The table row for individual drivers 
+ */
 const Driver = (props) => {
 
     return (
@@ -11,6 +13,7 @@ const Driver = (props) => {
             </td>
 
             <td className="text-center pr-6">
+                {/* Clickable driver modal */}
                 <DriverView supabase={props.supabase}
                     driverRef={props.driver.drivers.driverRef}
                     forename={props.driver.drivers.forename}

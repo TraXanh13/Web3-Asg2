@@ -2,7 +2,7 @@
 import ConstructorView from "../functionalComponents/ConstructorView";
 
 /*
- * The main container holding the driver standing and constructor standing tables
+ * The table row for individual constructors 
  */
 const Constructor = (props) => {
 

@@ -1,28 +1,32 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../F1Context";
 import Driver from "./Driver";
 import StandingsHeader from "../functionalComponents/StandingsHeader";
+import { GoSortDesc } from "react-icons/go";
+import { GoSortAsc } from "react-icons/go";
 
 const DriverStandings = (props) => {
     const { driverStandings, setDriverStandings } = useContext(AppContext);
+    const [isDescending, setIsDescending] = useState(true);
 
     function filterDriverStandings() {
         const copy = [...driverStandings].reverse();
         setDriverStandings(copy);
+        setIsDescending(!isDescending);
     }
 
     return (
-        <div className="w-fit border ml-10 px-4 justify-items-center animate-fade-right animate-delay-300 animate-ease-out">
+        <div className="w-[38%] ml-10 px-4 pb-5 h-fit justify-items-center font-montserrat animate-fade-right animate-delay-300 animate-ease-out bg-gray-100 rounded-3xl">
+            <div className="flex p-2 mt-2 justify-center sticky top-0 bg-gray-800 rounded-lg">
+                <h3 className='font-bold text-2xl text-center self-center text-gray-200 cursor-default'>Drivers</h3>
+                <button type="submit" className="absolute right-0 mr-10 " onClick={filterDriverStandings}>
 
-            <div className="flex my-5 justify-center">
-                <h3 className='font-bold text-2xl text-center'>Drivers</h3>
-                <button type="submit" className="absolute right-0 h-6 mr-10 mt-2" onClick={filterDriverStandings}>
-                    <img src="/images/icons/sort.png" alt="sort icon" title="sort icon" />
+                    {isDescending ? <GoSortDesc style={{ color: 'white', fontSize: '35px' }} /> : <GoSortAsc style={{ color: 'white', fontSize: '35px' }} />}
                 </button>
             </div>
-            <table className="table-auto w-96">
+            <table className="table-auto w-full h-5/6">
                 {/* Table Header */}
-                <thead className="">
+                <thead>
                     <tr className="text-left">
                         <StandingsHeader>Pos</StandingsHeader>
                         <StandingsHeader></StandingsHeader>
@@ -32,7 +36,7 @@ const DriverStandings = (props) => {
                 </thead>
 
                 {/*Table Content */}
-                <tbody>
+                <tbody className="p-4">
                     {driverStandings.map((d, indx) => <Driver key={indx} driver={d} supabase={props.supabase} />)}
 
                 </tbody>

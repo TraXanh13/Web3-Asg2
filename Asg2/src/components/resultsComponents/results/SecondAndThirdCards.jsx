@@ -5,11 +5,11 @@ import ConstructorView from "../../functionalComponents/ConstructorView"
 const SecondAndThirdCards = (props) => {
 
     return (
-        <div className="flex my-2 relative overflow-hidden animate-fade-right animate-delay-300 animate-ease-in-out">
-            <h3 className="text-5xl">{props.medal}</h3>
+        <div className="flex my-2 relative overflow-hidden font-barlow-condensed animate-fade-right animate-delay-300 animate-ease-in-out">
+            <h3 className="text-5xl cursor-default">{props.medal}</h3>
             <img className="w-16" src="https://placehold.co/15" />
-            <div className="ml-2 font-bold">
-                <h3 className="">
+            <div className="ml-2 font-semibold text-xl">
+                <h3>
                     <DriverView
                         supabase={props.supabase}
                         driverRef={props.race.drivers.driverRef}
@@ -22,11 +22,11 @@ const SecondAndThirdCards = (props) => {
                         name={props.race.constructors.name} />
                 </h4>
             </div>
-            <div className="ml-auto">
+            <div className="ml-auto text-xl cursor-default">
                 <h3 className="font-semibold text-center">Time</h3>
                 <h4>{props.race.time}</h4>
             </div>
-            <div className="mx-4">
+            <div className="mx-4 text-xl cursor-default">
                 <h3 className="font-semibold">Points</h3>
                 <h4 className="text-center">{props.race.points}</h4>
             </div>

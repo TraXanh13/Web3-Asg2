@@ -26,7 +26,7 @@ const Dashboard = (props) => {
     } else {
         compView = <>
             <div className="border items-center flex justify-center w-full h-full">
-                <h1 className='font-bold font-montserrat text-5xl text-center text-gray-300 py-1 hover:cursor-default'>Choose a race to begin....</h1>
+                <h1 className='font-bold font-montserrat text-5xl text-center text-gray-400 py-1 hover:cursor-default'>Click the results icon or the standings icon to get started....</h1>
             </div>
         </>
     }
@@ -46,8 +46,8 @@ const Dashboard = (props) => {
             <AboutModal />
             <Footer />
             <div className="absolute top-0 bg-cover w-full h-full bg-center opacity-10 -z-50"
-                    style={{ backgroundImage: `url("/images/F1_Background.png")` }} />
-            
+                style={{ backgroundImage: `url("/images/F1_Background.png")` }} />
+
         </main>
 
     )

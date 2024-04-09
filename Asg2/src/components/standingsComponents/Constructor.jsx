@@ -11,7 +11,8 @@ const Constructor = (props) => {
             <td className="text-center pr-6">
                 <ConstructorView supabase={props.supabase}
                     constructorRef={props.constructor.constructors.constructorRef}
-                    name={props.constructor.constructors.name} />
+                    name={props.constructor.constructors.name}
+                    className="w-40 text-center cursor-pointer hover:text-red-900" />
             </td>
 
             <td className="cursor-default">

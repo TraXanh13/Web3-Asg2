@@ -54,10 +54,10 @@ const FavoritesModal = (props) => {
                             leaveTo="opacity-0 scale-95"
                         >
 
-                            <Dialog.Panel className="relative bg-white rounded-lg shadow dark:bg-gray-700" >
+                            <Dialog.Panel className="relative bg-gray-200 rounded-lg shadow" >
                                 {/* Modal header */}
-                                <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t dark:border-gray-600">
-                                    <Dialog.Title as="h3" className="text-xl font-semibold text-gray-900 dark:text-white">
+                                <div className="flex items-center justify-between p-4 mx-2 border-b rounded-t border-gray-800">
+                                    <Dialog.Title as="h3" className="text-2xl font-montserrat font-bold text-black">
                                         Favorites
                                     </Dialog.Title>
                                     <div>
@@ -71,43 +71,63 @@ const FavoritesModal = (props) => {
                                 </div>
 
                                 {/* Modal body */}
-                                <div className="flex items-center justify-evenly p-2 mx-3">
-                                    <div className="w-30 p-4 text-white self-start">
-                                        <h1 className="text-center">Drivers</h1>
-                                        <div className="flex flex-col">
-                                            {favoriteDrivers.map((d, indx) =>
-                                                <DriverView
-                                                    key={indx}
-                                                    supabase={props.supabase}
-                                                    driverRef={d.driverRef}
-                                                    forename={d.forename}
-                                                    surname={d.surname} />)}
-                                        </div>
-                                    </div>
-                                    <div className="w-30 p-4 text-white self-start">
-                                        <h1 className="text-center">Constructors</h1>
-                                        <div className="flex flex-col">
-                                            {favoriteConstructors.map((c, indx) =>
-                                                <ConstructorView
-                                                    key={indx}
-                                                    supabase={props.supabase}
-                                                    constructorRef={c.constructorRef}
-                                                    name={c.name} />)}
-                                        </div>
+                                <div className="flex flex-row items-start justify-between p-2 mx-3 text-2xl text-black font-barlow-condensed">
+                                    <div className="w-30 p-4 ">
+                                        <h1 className="text-center font-bold font-montserrat">Drivers</h1>
+                                        {
+
+                                            (favoriteDrivers.length == 0) ?
+                                                <p className=" text-gray-500 text-center text-lg">Click on a driver to add to favorites</p> :
+                                                <div className="flex flex-col">
+                                                    {favoriteDrivers.map((d, indx) =>
+                                                        <DriverView
+                                                            key={indx}
+                                                            supabase={props.supabase}
+                                                            driverRef={d.driverRef}
+                                                            forename={d.forename}
+                                                            surname={d.surname}
+                                                            className="w-40 text-center text-xl cursor-pointer font-medium hover:text-red-900" />)}
+                                                </div>
+                                        }
 
                                     </div>
-                                    <div className="w-30 p-4 text-white self-start">
-                                        <h1 className="text-center">Circuits</h1>
-                                        <div className="flex flex-col">
-                                            {favoriteCircuits.map((cc, indx) =>
-                                                <CircuitView
-                                                    key={indx}
-                                                    supabase={props.supabase}
-                                                    circuitRef={cc.constructorRef}
-                                                    round={null}
-                                                    name={cc.name}
-                                                    className="min-w-52 cursor-pointer text-center" />)}
-                                        </div>
+                                    <div className="w-30 p-4">
+                                        <h1 className="text-center font-bold font-montserrat">Constructors</h1>
+                                        {
+
+                                            (favoriteConstructors.length == 0) ?
+                                                <p className=" text-gray-500 text-center text-lg">Click on a constructor to add to favorites</p> :
+                                                <div className="flex flex-col">
+                                                    {favoriteConstructors.map((c, indx) =>
+                                                        <ConstructorView
+                                                            key={indx}
+                                                            supabase={props.supabase}
+                                                            constructorRef={c.constructorRef}
+                                                            name={c.name}
+                                                            className="w-40 text-center text-xl cursor-pointer font-medium hover:text-red-900" />)}
+                                                </div>
+                                        }
+
+
+                                    </div>
+                                    <div className="w-30 p-4">
+                                        <h1 className="text-center font-bold font-montserrat">Circuits</h1>
+                                        {
+
+                                            (favoriteCircuits.length == 0) ?
+                                                <p className=" text-gray-500 text-center text-lg">Click on a circuit to add to favorites</p> :
+                                                <div className="flex flex-col">
+                                                    {favoriteCircuits.map((cc, indx) =>
+                                                        <CircuitView
+                                                            key={indx}
+                                                            supabase={props.supabase}
+                                                            circuitRef={cc.constructorRef}
+                                                            round={null}
+                                                            name={cc.name}
+                                                            className="w-40 text-center text-lg cursor-pointer font-medium hover:text-red-900" />)}
+                                                </div>
+                                        }
+
                                     </div>
                                 </div>
 

@@ -16,7 +16,7 @@ const DriverStandings = (props) => {
     }
 
     return (
-        <div className="w-[38%] ml-10 px-4 pb-5 h-fit justify-items-center font-montserrat animate-fade-right animate-delay-300 animate-ease-out bg-gray-100 rounded-3xl">
+        <div className="w-[38%] ml-10 px-4 pb-5 h-fit justify-items-start font-montserrat animate-fade-right animate-delay-300 animate-ease-out bg-gray-100 rounded-3xl">
             <div className="flex p-2 mt-2 justify-center sticky top-0 bg-gray-800 rounded-lg">
                 <h3 className='font-bold text-2xl text-center self-center text-gray-200 cursor-default'>Drivers</h3>
                 <button type="submit" className="absolute right-0 mr-10 " onClick={filterDriverStandings}>

@@ -14,7 +14,7 @@ const HeaderSeasonSelect = (props) => {
 
     return (
         <div className="flex items-center">
-            <select className=" font-montserrat font-semibold ml-3 flex w-40 items-center rounded-sm border-0 border-b-2 border-solid border-red-500 bg-transparent px-0 py-1 text-lg tracking-wider focus:border-b-orange-600 focus:outline-none focus:ring-orange-600 focus:text-red-900" onChange={handleChange}>
+            <select className=" font-montserrat font-bold ml-3 flex w-40  items-center rounded-sm border-0 border-b-2 border-solid border-red-500 bg-transparent px-0 py-1 text-lg tracking-wider focus:border-b-orange-600 focus:outline-none focus:ring-orange-600 focus:text-red-900" onChange={handleChange}>
                 <option hidden={true}>2023</option>
                 {props.seasons.map(s => <SeasonOption key={s.year} season={s} />)}
             </select>

@@ -1,7 +1,7 @@
 const SeasonOption = (props) => {
     return (
 
-        <option value={props.season.year}>{props.season.year}</option>
+        <option className=" font-medium hover:bg-red-500 bg-transparent" value={props.season.year}>{props.season.year}</option>
     );
 }
 

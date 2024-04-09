@@ -1,6 +1,15 @@
 /* eslint-disable react/prop-types */
 
+/*
+ * Component to build the buttons
+ *
+ * @className: the tailwind classes assigned to the button
+ * @onClick: event handler for button press
+ * @children: the button name
+ * @disabledStatus: T/F if the button is clickable
+ */
 const Button = ({ className, onClick, children, disabledStatus }) => {
+    // Changes the style of the button if disabled
     if (disabledStatus) {
         className = "font-barlow-condensed text-center text-lg font-bold cursor-not-allowed px-2 text-red-400"
     }

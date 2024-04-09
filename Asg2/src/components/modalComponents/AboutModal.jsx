@@ -1,9 +1,9 @@
-import { useState, useContext, Fragment, useEffect } from "react";
+import { useContext, Fragment } from "react";
 import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
-const AboutModal = (props) => {
+const AboutModal = () => {
     const { aboutView, setAboutView } = useContext(AppContext);
 
     const handlAboutClose = () => {

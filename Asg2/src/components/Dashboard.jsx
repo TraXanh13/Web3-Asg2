@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AppContext } from '../F1Context';
 import HeaderApp from './headerComponents/HeaderApp';
 import Footer from './footerComponents/Footer';

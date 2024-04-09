@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import { AppContext } from "../../F1Context";
 import Constructor from "./Constructor";

@@ -36,7 +36,6 @@ const Results = (props) => {
         )
     }
 
-    console.log(results);
     return (
         <div className="flex grow flex-wrap h-full relative overflow-y-auto p-3 font-montserrat animate-fade-right animate-delay-100 animate-ease-out">
             {/* Results Header */}

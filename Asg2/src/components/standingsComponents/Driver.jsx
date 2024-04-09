@@ -14,7 +14,9 @@ const Driver = (props) => {
                 <DriverView supabase={props.supabase}
                     driverRef={props.driver.drivers.driverRef}
                     forename={props.driver.drivers.forename}
-                    surname={props.driver.drivers.surname} />
+                    surname={props.driver.drivers.surname}
+                    className="w-40 text-center cursor-pointer hover:text-red-900"
+                />
             </td>
 
             <td className="cursor-default">

@@ -3,6 +3,8 @@ import Winner from './results/Winner'
 import SecondAndThird from './results/SecondAndThird';
 import OtherDrivers from './results/OtherDrivers';
 import Qualifying from './qualifying/Qualifying'
+import CircuitView from '../functionalComponents/CircuitView';
+import dateFormat from "dateformat";
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../F1Context';
 import PropagateLoader from "react-spinners/PropagateLoader"
@@ -34,10 +36,23 @@ const Results = (props) => {
         )
     }
 
+    console.log(results);
     return (
         <div className="flex grow flex-wrap h-full relative overflow-y-auto p-3 font-montserrat animate-fade-right animate-delay-100 animate-ease-out">
             {/* Results Header */}
-            <h2 className='font-bold text-2xl w-full text-center sticky top-0 z-20 bg-black text-white py-4 rounded-2xl'>{results.length > 0 ? (results[0].races.name + " " + results[0].races.year) : "Races"}</h2>
+            <div className='flex flex-col w-full text-center sticky top-0 z-20 bg-gray-900 py-4 rounded-2xl'>
+                <h2 className='font-bold text-2xl w-full text-center text-white'>
+                    <CircuitView supabase={props.supabase}
+                        circuitId={results[0].races.circuitId}
+                        name={results[0].races.name}
+                        className="min-w-52 cursor-pointer text-4xl hover:text-red-500"
+                    /></h2>
+                <h3 className='text-white font-barlow-condensed text-3xl font-semibold cursor-default'>Season {results[0].races.year} Round {results[0].races.round}</h3>
+                <h3 className='text-white cursor-default font-medium text-xl'>{dateFormat(results[0].races.date, "mmmm dS, yyyy")}</h3>
+                <a href={results[0].races.url} target="_blank" className="text-white cursor-pointer text-xl font-medium hover:text-green-400">Wiki Page</a>
+
+
+            </div>
 
             {/* Qualifying Section */}
             <div className=" w-5/12 p-4 animate-fade-right overflow-y-auto no-scrollbar animate-delay-300 animate-ease-out">

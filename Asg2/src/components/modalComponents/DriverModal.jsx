@@ -52,7 +52,7 @@ const DriverModal = () => {
     return (
         <>
             <Transition appear show={driverView} as={Fragment}>
-                <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
+                <Dialog as="div" tabIndex={-1} className="z-60 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}
                     <Transition.Child
                         as={Fragment}

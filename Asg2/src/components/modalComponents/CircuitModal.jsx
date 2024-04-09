@@ -100,7 +100,7 @@ const CircuitModal = () => {
                                         <>
                                             <div className="flex w-fit p-4">
                                                 {/* <h1 className="flex-row text-center px-2">Circuit Image</h1> */}
-                                                <img className="circuitImg mr-4" src="https://placeholder.co/200"></img>
+                                                <img className="circuitImg mr-4" src="https://placehold.co/200"></img>
                                                 {/* <h1 className="flex-row text-center" >Circuit Map</h1> */}
                                                 <MapContainer center={[circuit[0].lat, circuit[0].lng]} zoom={13}>
                                                     <TileLayer

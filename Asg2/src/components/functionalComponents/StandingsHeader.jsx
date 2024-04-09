@@ -10,7 +10,7 @@ const StandingsHeader = ({ className, children }) => {
 
 //Setting default props for the button class
 StandingsHeader.defaultProps = {
-    className: "font-bold text-base", //default className and tailwind styling
+    className: "py-2 font-bold text-lg font-montserrat cursor-default", //default className and tailwind styling
 }
 
 export default StandingsHeader;

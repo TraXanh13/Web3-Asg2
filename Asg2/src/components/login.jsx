@@ -5,6 +5,11 @@
 import { useContext } from "react";
 import {AppContext} from '../F1Context';
 
+/*
+ * The login page
+ *
+ * Authenticator is not active
+ */
 export default function Login() {
     const {setLogin} = useContext(AppContext);
 

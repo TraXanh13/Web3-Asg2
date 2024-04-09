@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
 import ConstructorView from "../functionalComponents/ConstructorView";
 
+/*
+ * The main container holding the driver standing and constructor standing tables
+ */
 const Constructor = (props) => {
 
     return (

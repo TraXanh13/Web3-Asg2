@@ -10,6 +10,7 @@ const App = () => {
   const { loggedIn } = useContext(AppContext);
 
   return (
+    // Redirects depending if a user is logged in
     <div>{loggedIn ? <Dashboard supabase={supabase}/> : <Login />}</div>
   )
 }

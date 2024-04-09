@@ -14,6 +14,9 @@ import DriverModal from './modalComponents/DriverModal';
 import CircuitModal from './modalComponents/CircuitModal';
 import AboutModal from './modalComponents/AboutModal';
 
+/*
+ * The home page containing all of the views and interactions
+ */
 const Dashboard = (props) => {
     const { view } = useContext(AppContext);
 

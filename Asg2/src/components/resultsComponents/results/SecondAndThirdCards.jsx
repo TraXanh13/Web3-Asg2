@@ -14,12 +14,14 @@ const SecondAndThirdCards = (props) => {
                         supabase={props.supabase}
                         driverRef={props.race.drivers.driverRef}
                         forename={props.race.drivers.forename}
-                        surname={props.race.drivers.surname} />
+                        surname={props.race.drivers.surname}
+                        className="w-40 text-center cursor-pointer hover:text-red-900" />
                 </h3>
                 <h4>
                     <ConstructorView supabase={props.supabase}
                         constructorRef={props.race.constructors.constructorRef}
-                        name={props.race.constructors.name} />
+                        name={props.race.constructors.name}
+                        className="w-40 text-center cursor-pointer hover:text-red-900" />
                 </h4>
             </div>
             <div className="ml-auto text-xl cursor-default">

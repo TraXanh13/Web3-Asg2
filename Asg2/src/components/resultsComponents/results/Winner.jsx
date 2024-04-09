@@ -18,18 +18,22 @@ const Winner = (props) => {
             // <div className="relative border col-span-3 row-span-10 bg-cover bg-center">
             <div className="relative w-1/2 items-stretch m-0 animate-fade-right animate-delay-2000 animate-ease-out font-barlow-condensed">
                 <h3 className="text-center text-[3.5rem] my-4 cursor-default">🏆</h3>
-                <img className="ml-1/2 mr-1/2 h-auto px-4 my-4 " src="https://placehold.co/200"></img>
+                <div className="flex justify-center">
+                    <img className="px-4 my-4" src="https://placehold.co/200"></img>
+                </div>
                 <h3 className=" font-bold text-center text-3xl">
                     <DriverView
                         supabase={props.supabase}
                         driverRef={results[0].drivers.driverRef}
                         forename={results[0].drivers.forename}
-                        surname={results[0].drivers.surname} />
+                        surname={results[0].drivers.surname}
+                        className="w-40 text-center cursor-pointer hover:text-red-900" />
                 </h3>
                 <h3 className="font-bold text-center text-2xl">
                     <ConstructorView supabase={props.supabase}
                         constructorRef={results[0].constructors.constructorRef}
-                        name={results[0].constructors.name} />
+                        name={results[0].constructors.name}
+                        className="w-40 text-center cursor-pointer hover:text-red-900" />
                 </h3>
                 <table className="w-full text-center my-8 mr-10 text-2xl cursor-default">
                     <thead>

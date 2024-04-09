@@ -71,11 +71,11 @@ const Results = (props) => {
                 <Winner supabase={props.supabase} />
                 <div className="flex flex-col items-stretch w-1/2 m-0">
                     <SecondAndThird supabase={props.supabase} />
-                    <div className="items-stretch overflow-y-auto no-scrollbar animate-fade-up animate-delay-300 animate-ease-in-out">
+                    <div className="items-stretch overflow-y-auto no-scrollbar cursor-default font-barlow-condensed animate-fade-up animate-delay-300 animate-ease-in-out">
                         <table className="text-left border-collapse border-spacing-0">
-                            <thead>
+                            <thead className='text-xl font-semibold'>
                                 <tr>
-                                    <td className="w-1/12 text-center">Pos.</td>
+                                    <td className="w-1/12 text-center">Pos</td>
                                     <td className="w-1/5">Driver</td>
                                     <td className="w-1/5">Constructor</td>
                                     <td className="w-1/12 text-center">Laps</td>

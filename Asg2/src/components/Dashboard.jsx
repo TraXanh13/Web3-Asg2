@@ -26,7 +26,7 @@ const Dashboard = (props) => {
     } else {
         compView = <>
             <div className="border items-center flex justify-center w-full h-full">
-                <h1 className='font-bold font-montserrat text-5xl text-center text-gray-400 py-1 hover:cursor-default'>Click the results icon or the standings icon to get started....</h1>
+                <h1 className='font-bold font-montserrat text-4xl text-center text-gray-400 py-1 hover:cursor-default'>Click the results icon or the standings icon to get started....</h1>
             </div>
         </>
     }

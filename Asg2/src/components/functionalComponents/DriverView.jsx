@@ -36,7 +36,7 @@ const DriverView = (props) => {
 
     return (
         <a target="_blank" rel="noopener noreferrer"
-            className="w-40 text-center cursor-pointer hover:text-red-900"
+            className={props.className}
             onClick={handleDriverOpen}>
             {props.forename} {props.surname}
         </a>

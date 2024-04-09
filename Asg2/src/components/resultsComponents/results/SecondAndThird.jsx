@@ -1,11 +1,20 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react"
 import { AppContext } from "../../../F1Context"
 import SecondAndThirdCards from "./SecondAndThirdCards"
 
+/*
+ * Returns the container for the second and third place drivers
+ * 
+ * @params{{
+ *  supabase: The supabase object
+ * }}
+ */
 const SecondAndThird = (props) => {
+    // The results of the specific race
     const { results: results } = useContext(AppContext)
 
-    if (results.length > 0) {
+    if (results.length > 2) {
         return (
             // <div className="flex flex-col border col-span-3 row-span-3">
             <div className="flex flex-col h-fit m-0">
@@ -15,6 +24,7 @@ const SecondAndThird = (props) => {
         )
     }
 
+    // Defaults if there are less that 3 drivers in a race
     return (
         // <div className="flex flex-col border col-span-3 row-span-3">
         <div className="flex flex-col h-1/2 m-0">

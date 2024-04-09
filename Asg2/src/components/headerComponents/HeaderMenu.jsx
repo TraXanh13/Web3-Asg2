@@ -1,13 +1,20 @@
 import { useContext } from "react";
 import { AppContext } from "../../F1Context";
 
-const HeaderMenu = (props) => {
+/*
+ * Returns the header menu items (about and favourites)
+ *  Onclick will display the proper modals
+ */
+const HeaderMenu = () => {
     const { setFavoriteView, setAboutView } = useContext(AppContext);
 
-    const handleFavoriteClick = (e) => {
+    // Sets the favourite model state to true
+    const handleFavoriteClick = () => {
         setFavoriteView(true);
     }
-    const handleAboutClick = (e) => {
+
+    // Sets the about model state to true
+    const handleAboutClick = () => {
         setAboutView(true);
     }
 

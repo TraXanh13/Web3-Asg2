@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useContext, Fragment } from "react";
 import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
@@ -7,17 +8,31 @@ import ConstructorView from "../functionalComponents/ConstructorView";
 import DriverView from "../functionalComponents/DriverView";
 import CircuitView from "../functionalComponents/CircuitView";
 
+/*
+ * Returns the modal for the favorite section
+ * inspired by: https://headlessui.com/react/dialog
+ */
 const FavoritesModal = (props) => {
+    /*
+    * favoriteView: true to show the modal, false to hide the modal
+    */
     const { favoriteView, setFavoriteView } = useContext(AppContext);
 
+    /*
+     * favoriteDrivers: the list of drivers added to the favorites list
+     * favoriteConstructors: the list of constructors added to the favorites list
+     * favoriteCircuits: the list of circuits added to the favorites list
+     */
     const { favoriteDrivers, setFavoriteDrivers,
         favoriteConstructors, setFavoriteConstructors,
         favoriteCircuits, setFavoriteCircuits } = useContext(AppContext);
 
+    // Closes the favorite modal
     const handleFavoriteClose = () => {
         setFavoriteView(false);
     }
 
+    // Resets all of the favorite lists to empty arrays
     const handleEmptyFavorites = () => {
         setFavoriteCircuits([]);
         setFavoriteConstructors([])
@@ -26,6 +41,7 @@ const FavoritesModal = (props) => {
 
     return (
         <>
+            {/* Transition animations for the favorites modal */}
             <Transition appear show={favoriteView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
 

@@ -4,16 +4,27 @@ import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 import dateFormat from "dateformat";
 
+/*
+ * Returns the modal for the driver section
+ * inspired by: https://headlessui.com/react/dialog
+ */
 const DriverModal = () => {
+    /*
+    * driver: useState for the individual driver data
+    * driverView: true to show the modal, false to hide the modal
+    * favoriteDrivers: the list of drivers added to the favorites list
+    */
     const { driver,
         driverView,
         setDriverView,
         favoriteDrivers,
         setFavoriteDrivers } = useContext(AppContext);
 
+    // flag for loader animation: true-on false-off
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [inFavorites, setInFavorites] = useState(false);
 
+    // Closes the driver modal
     const handleDriverClose = () => {
         setDriverView(false);
     }
@@ -28,6 +39,7 @@ const DriverModal = () => {
 
     }, [driver, favoriteDrivers]);
 
+    // Adds the driver to the favoriteDrivers list
     const addToFavorites = () => {
 
         if (!inFavorites) {
@@ -35,6 +47,12 @@ const DriverModal = () => {
         }
     }
 
+    /*
+    * Calculates the age of the drivers based off the dob
+    * @dob: the date of birth
+    * 
+    * @return: (number) the drivers age 
+    */
     function calculateAge(dob) {
 
         var today = new Date();
@@ -51,6 +69,7 @@ const DriverModal = () => {
 
     return (
         <>
+            {/* Transition animation for the driver modal */}
             <Transition appear show={driverView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-60 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}

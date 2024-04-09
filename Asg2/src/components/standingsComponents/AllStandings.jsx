@@ -1,9 +1,13 @@
+/* eslint-disable react/prop-types */
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../F1Context";
 import DriverStandings from "./DriverStandings";
 import ConstructorStandings from "./ConstructorStandings";
 import PropagateLoader from "react-spinners/PropagateLoader"
 
+/*
+ * The main container holding the driver standing and constructor standing tables
+ */
 const AllStandings = (props) => {
     const { constructorStandings, driverStandings, standingsLoading, setStandingsLoading } = useContext(AppContext);
 

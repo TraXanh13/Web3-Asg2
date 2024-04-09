@@ -11,14 +11,24 @@ import PropagateLoader from "react-spinners/PropagateLoader"
 import { GoSortDesc } from "react-icons/go";
 import { GoSortAsc } from "react-icons/go";
 
+/*
+ * Component for the entire results section
+ */
 const Results = (props) => {
+    /*
+     * results: the results for a specific race
+     * qualifying: the list of qualifying races in that seasonon
+     * resultsLoading: flag to show the loader
+     */
     const { results, qualifying, setQualifying, resultsLoading, setResultsLoading } = useContext(AppContext)
+    // Flag to check if the list is descending
     const [isDescending, setIsDescending] = useState(true);
 
     useEffect(() => {
         setTimeout(() => setResultsLoading(false), 1500);
     }, [resultsLoading]);
 
+    // Reverses the qualifying data
     function updateQualifying() {
         const copy = [...qualifying].reverse();
         setQualifying(copy);
@@ -41,6 +51,7 @@ const Results = (props) => {
             {/* Results Header */}
             <div className='flex flex-col w-full text-center sticky top-0 z-20 bg-gray-900 py-4 rounded-2xl'>
                 <h2 className='font-bold text-2xl w-full text-center text-white'>
+                    {/* The clickable circuit modal */}
                     <CircuitView supabase={props.supabase}
                         circuitId={results[0].races.circuitId}
                         name={results[0].races.name}
@@ -97,6 +108,7 @@ const Results = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
+                                {/* The rest of the drivers after the podium */}
                                 {results.slice(3).map((result, i) => <OtherDrivers result={result} key={i} supabase={props.supabase} />)}
                             </tbody>
                         </table>

@@ -1,12 +1,23 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react"
 import { AppContext } from "../../../F1Context"
 import DriverView from "../../functionalComponents/DriverView"
 import ConstructorView from "../../functionalComponents/ConstructorView"
 
+/*
+ * Returns the container for this races winner
+ * 
+ * @params{{
+ *  supabase: The supabase object
+ * }}
+ * 
+ * @returns the winners div
+ */
 const Winner = (props) => {
+    // The results of all drivers for a specific race
     const { results: results } = useContext(AppContext)
 
-    let url = `http://purecatamphetamine.github.io/country-flag-icons/3x2/${results[0].drivers.countryCode}.svg`;
+    // Flag is the fastest lap time is missing
     let isEmpty = false;
 
     if (results[0].fastestLapTime == null) {
@@ -15,13 +26,13 @@ const Winner = (props) => {
 
     if (results.length > 0) {
         return (
-            // <div className="relative border col-span-3 row-span-10 bg-cover bg-center">
             <div className="relative w-1/2 items-stretch m-0 animate-fade-right animate-delay-2000 animate-ease-out font-barlow-condensed">
                 <h3 className="text-center text-[3.5rem] my-4 cursor-default">🏆</h3>
                 <div className="flex justify-center">
                     <img className="px-4 my-4" src="https://placehold.co/200"></img>
                 </div>
                 <h3 className=" font-bold text-center text-3xl">
+                    {/* The clickable drivers name for the modal */}
                     <DriverView
                         supabase={props.supabase}
                         driverRef={results[0].drivers.driverRef}
@@ -30,6 +41,7 @@ const Winner = (props) => {
                         className="w-40 text-center cursor-pointer hover:text-red-900" />
                 </h3>
                 <h3 className="font-bold text-center text-2xl">
+                    {/* The clickable constructors name for the modal */}
                     <ConstructorView supabase={props.supabase}
                         constructorRef={results[0].constructors.constructorRef}
                         name={results[0].constructors.name}
@@ -64,6 +76,7 @@ const Winner = (props) => {
                         </tr>
                     </tbody>
                 </table>
+                {/* The flag background */}
                 <div className="absolute top-0 bg-cover w-full h-full bg-white bg-center opacity-80 -z-50" />
                 <div className="absolute top-0 bg-cover w-full h-full bg-center opacity-30 -z-50"
                     style={{ backgroundImage: `url("http://purecatamphetamine.github.io/country-flag-icons/3x2/${results[0].drivers.countryCode}.svg")` }} />

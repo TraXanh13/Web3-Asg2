@@ -6,8 +6,16 @@ import "leaflet/dist/leaflet.css"
 import Button from "../functionalComponents/Button";
 import './circuitMap.css'
 
+/*
+ * Returns the modal for the circuit section
+ * inspired by: https://headlessui.com/react/dialog
+ */
 const CircuitModal = () => {
-    //This state is temporary and is use for testing, please change this to a proper one 
+    /*
+    * circuit: useState for the individual circuit data
+    * circuitView: true to show the modal, false to hide the modal
+    * favoriteCircuits: the list of circuits added to the favorites list
+    */
     const {
         circuit,
         circuitView,
@@ -16,6 +24,7 @@ const CircuitModal = () => {
         setFavoriteCircuits
     } = useContext(AppContext);
 
+    // flag for loader animation: true-on false-off
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [inFavorites, setInFavorites] = useState(false);
 
@@ -36,10 +45,12 @@ const CircuitModal = () => {
 
     }, [circuit, favoriteCircuits]);
 
+    // closes the circuit view
     const handleCircuitClose = () => {
         setCircuitView(false);
     }
 
+    // Add a circuit to the favorite list
     const addToFavorites = () => {
 
         if (!inFavorites) {
@@ -50,7 +61,7 @@ const CircuitModal = () => {
 
     return (
         <>
-            {/*Please change the show to the right state name after testing */}
+            {/* Transition animation for circuit modal */}
             <Transition appear show={circuitView} as={Fragment}>
                 <Dialog as="div" tabIndex={-3} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 /*
- * Component to build the buttons
+ * Component to build the add to favourites buttons
  *
  * @className: the tailwind classes assigned to the button
  * @onClick: event handler for button press

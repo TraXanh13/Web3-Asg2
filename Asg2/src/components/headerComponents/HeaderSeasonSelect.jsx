@@ -1,12 +1,16 @@
+/* eslint-disable react/prop-types */
 import SeasonOption from "./SeasonOption.jsx";
 import { AppContext } from '../../F1Context.jsx';
-import { useContext, Fragment, useState } from "react";
-import { Listbox } from "@headlessui/react";
+import { useContext} from "react";
 
+/*
+ * Returns the select menu with all of the seasons
+ */
 const HeaderSeasonSelect = (props) => {
 
     const { setSeason, setView } = useContext(AppContext);
 
+    // Sets the season to the current select option
     const handleChange = (e) => {
         setSeason(e.target.value);
         setView("none");

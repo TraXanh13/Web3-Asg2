@@ -1,11 +1,25 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react"
 import { AppContext } from "../../F1Context"
 
-//constructorRef name nationality
+/*
+ * Returns the clickable constructor name component
+ *
+ * @props {{
+ *  supabase: The supabase object
+ *  constructorRef: The constructors reference name
+ *  name: The constructor name
+ *  className: The list of tailwind classes
+ * }}
+ * 
+ * @returns a href to constructor modal
+ */
 const ConstructorView = (props) => {
-
+    
+    // The constructorView (T/F), individual constructor useState
     const { setConstructorView, setConstructor } = useContext(AppContext);
 
+    // Sets the constructorView to true and fetches data
     const handleConstructorOpen = () => {
         setTimeout(() => {
             setConstructorView(true);
@@ -14,6 +28,10 @@ const ConstructorView = (props) => {
         getConstructorData();
     }
 
+    /*
+     * Queries supabase to find the corresponding constructor
+     *  and sets the constructor useState 
+     */
     async function getConstructorData() {
         const { data, err } = await props.supabase
             .from("constructors")

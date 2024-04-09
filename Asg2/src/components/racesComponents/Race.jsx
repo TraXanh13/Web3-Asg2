@@ -3,10 +3,22 @@ import ResultsButton from "./ResultsButton";
 import StandingsButton from "./StandingsButton";
 import CircuitView from "../functionalComponents/CircuitView";
 
+/*
+ * Returns the individual race
+ *
+ * @props {{
+ *  race: The individual race object
+ *  supabase: The supabase object
+ * }}
+ * 
+ * @returns div containing the specific race and buttons
+ */
 const Race = (props) => {
+    
     return (
         <div className="flex justify-end w-25 pt-0.5 odd:bg-gray-200 even:bg-gray-50">
             <h2 className=" font-barlow-condensed text-lg w-6 cursor-default">{props.race.round}.</h2>
+            {/* The clickable circuit name to open a modal */}
             <CircuitView
                 supabase={props.supabase}
                 circuitId={props.race.circuitId}

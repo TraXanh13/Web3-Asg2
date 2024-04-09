@@ -2,9 +2,28 @@
 import { useContext } from "react"
 import { AppContext } from "../../F1Context"
 
+/*
+ * Button component to set results useState
+ *
+ * @props {{
+ *  raceId: The identifier for a specific race
+ *  supabase: The supabase object
+ * }}
+ * 
+ * @returns the results button
+ */
 const StandingsButton = (props) => {
+    /*
+     * setView: sets the right side panel between "", results, or standings
+     * setDriverStandings: the list of drivers standing in that season
+     * setConstructorStandings: the list of constructor standings in that season
+     * setStandingsLoading: flag to show the loader
+     */
     const { setView, setDriverStandings, setConstructorStandings, setStandingsLoading } = useContext(AppContext)
 
+    /*
+    * Fetches the relevant data and sets the view to standings
+    */
     const buttonHandler = () => {
         setView("standings");
         setStandingsLoading(true);

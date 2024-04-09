@@ -3,17 +3,25 @@ import { useState, useEffect } from "react";
 import HeaderSeasonSelect from "./HeaderSeasonSelect";
 import HeaderMenu from "./HeaderMenu";
 
+/*
+ * Returns the header component
+ * @supabase: The supabase object
+ */
 const HeaderApp = (props) => {
 
-    //fetch seasons here
+    // The list of seasons
     const [seasons, setSeasons] = useState([]);
 
     useEffect(() => {
         getAllSeasons();
     }, []);
 
+    /*
+     * Queries supabase to find the corresponding seasons
+     *  and sets the seasons useState 
+     */
     async function getAllSeasons() {
-        const { data, error } = await props.supabase
+        const { data } = await props.supabase
             .from('seasons')
             .select()
             .gte('year', 2000)

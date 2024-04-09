@@ -3,17 +3,28 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
+/*
+ * Returns the modal for the constructor section
+ * inspired by: https://headlessui.com/react/dialog
+ */
 const ConstructorModal = () => {
+    /*
+    * constructor: useState for the individual constructor data
+    * constructorView: true to show the modal, false to hide the modal
+    * favoriteConstructors: the list of constructors added to the favorites list
+    */
     const {
         constructor,
         favoriteConstructors,
         setFavoriteConstructors,
         constructorView,
         setConstructorView } = useContext(AppContext);
+
     <div className="w-fit p-4">
         <img src="https://placehold.co/250"></img>
-
     </div>
+
+    // flag for loader animation: true-on false-off
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [inFavorites, setInFavorites] = useState(false);
 
@@ -26,11 +37,12 @@ const ConstructorModal = () => {
         setInFavorites(isInFavorites);
     }, [constructor, favoriteConstructors]);
 
-
+    // Closes the constructor modal
     const handleConstructorClose = () => {
         setConstructorView(false);
     }
 
+    // Add the constructor to the favoriteConstructor list
     const addToFavorites = () => {
         if (!inFavorites) {
             setFavoriteConstructors([...favoriteConstructors, constructor[0]]);
@@ -39,6 +51,7 @@ const ConstructorModal = () => {
 
     return (
         <>
+            {/* Transition animation for the constructor modal */}
             <Transition appear show={constructorView} as={Fragment}>
                 <Dialog as="div" tabIndex={-1} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}

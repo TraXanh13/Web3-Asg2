@@ -3,15 +3,22 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AppContext } from "../../F1Context";
 import Button from "../functionalComponents/Button";
 
+/*
+ * Returns the modal for the about section
+ * inspired by: https://headlessui.com/react/dialog
+ */
 const AboutModal = () => {
+    // aboutView (True: on, False: off)
     const { aboutView, setAboutView } = useContext(AppContext);
 
+    // sets the about view to false (closes the modal)
     const handlAboutClose = () => {
         setAboutView(false);
     }
 
     return (
         <>
+            {/* Transistion animation for the about section */}
             <Transition appear show={aboutView} as={Fragment}>
                 <Dialog as="div" tabIndex={-3} className="z-50 w-full" onClose={() => { }}>
                     {/* This part will transition the background to dim */}

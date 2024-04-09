@@ -1,10 +1,25 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react"
 import { AppContext } from "../../F1Context"
-import React from "react";
 
+/*
+ * Returns the clickable circuit name component
+ *
+ * @props {{
+ *  supabase: The supabase object
+ *  circuitId: The circuits id
+ *  round: The current round number
+ *  name: The name of the race (i.e. Bahrain Grand Prix)
+ *  className: The list of tailwind classes
+ * }}
+ * @returns a href to circuit modal
+ */
 const CircuitView = (props) => {
+
+    // The circuit view will either be on (True) or off (False)
     const { setCircuitView, setCircuit } = useContext(AppContext);
 
+    // Sets the circuit view to on and fetches the circuit data for the modal
     const handleCircuitOpen = () => {
         setTimeout(() => {
             setCircuitView(true);
@@ -13,6 +28,10 @@ const CircuitView = (props) => {
         getCircuitData();
     }
 
+    /*
+     * Queries supabase to find the corresponding circuit
+     *  and sets the circuit useState 
+     */
     async function getCircuitData() {
         const { data, err } = await props.supabase
             .from("circuits")
@@ -32,7 +51,6 @@ const CircuitView = (props) => {
         setCircuit(data);
 
     }
-
 
     return (
         <a target="_blank"
